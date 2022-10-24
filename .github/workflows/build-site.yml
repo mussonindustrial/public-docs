@@ -23,13 +23,11 @@ jobs:
     - name: Install Node.js
       uses: actions/setup-node@v2
       with:
-        node-version: '16'
-        
-    - name: Install Docusaurus
-      run: npx docusaurus-init
-              
+        node-version: '16'              
     - name: Build
-      run: npm run build
+      run: |
+        npm install
+        npm run build
                           
     - name: Backblaze B2 Upload
       run: b2 sync --delete ./build b2://${{ secrets.B2_BUCKET }}
