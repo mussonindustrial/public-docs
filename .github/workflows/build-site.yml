@@ -1,0 +1,32 @@
+name: Build and Publish
+
+on:
+  push: 
+    branches: [ "main" ]
+    
+concurrency: 
+  group: ${{ github.ref }}
+  cancel-in-progress: true
+    
+jobs:
+  publish: 
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+      
+    - name: Install B2 CLI
+      run: |
+        wget -O /usr/local/bin/b2 https://github.com/Backblaze/B2_Command_Line_Tool/releases/latest/download/b2-linux
+        chmod +x /usr/local/bin/b2
+        b2 authorize-account ${{ secrets.B2_KEY_ID }} ${{ secrets.B2_KEY }}
+                
+    - name: Install Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '16'
+              
+    - name: Build
+      run: npm run build
+                          
+    - name: Backblaze B2 Upload
+      run: b2 sync --delete ./build b2://${{ secrets.B2_BUCKET }}
