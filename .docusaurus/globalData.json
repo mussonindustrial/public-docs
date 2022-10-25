@@ -8,70 +8,74 @@
           "label": "Next",
           "isLast": true,
           "path": "/docs",
-          "mainDocId": "intro",
+          "mainDocId": "ignition-modules/index",
           "docs": [
             {
-              "id": "intro",
-              "path": "/docs/intro",
-              "sidebar": "tutorialSidebar"
+              "id": "ignition-modules/bartender/connection-creation",
+              "path": "/docs/ignition-modules/bartender/connection-creation"
             },
             {
-              "id": "tutorial-basics/congratulations",
-              "path": "/docs/tutorial-basics/congratulations",
-              "sidebar": "tutorialSidebar"
+              "id": "ignition-modules/bartender/connections/index",
+              "path": "/docs/ignition-modules/bartender/connections/",
+              "sidebar": "ignitionModules"
             },
             {
-              "id": "tutorial-basics/create-a-blog-post",
-              "path": "/docs/tutorial-basics/create-a-blog-post",
-              "sidebar": "tutorialSidebar"
+              "id": "ignition-modules/bartender/connections/tcp-socket",
+              "path": "/docs/ignition-modules/bartender/connections/tcp-socket",
+              "sidebar": "ignitionModules"
             },
             {
-              "id": "tutorial-basics/create-a-document",
-              "path": "/docs/tutorial-basics/create-a-document",
-              "sidebar": "tutorialSidebar"
+              "id": "ignition-modules/bartender/connections/web-service",
+              "path": "/docs/ignition-modules/bartender/connections/web-service",
+              "sidebar": "ignitionModules"
             },
             {
-              "id": "tutorial-basics/create-a-page",
-              "path": "/docs/tutorial-basics/create-a-page",
-              "sidebar": "tutorialSidebar"
+              "id": "ignition-modules/bartender/index",
+              "path": "/docs/ignition-modules/bartender/",
+              "sidebar": "ignitionModules"
             },
             {
-              "id": "tutorial-basics/deploy-your-site",
-              "path": "/docs/tutorial-basics/deploy-your-site",
-              "sidebar": "tutorialSidebar"
+              "id": "ignition-modules/bartender/installation",
+              "path": "/docs/ignition-modules/bartender/installation",
+              "sidebar": "ignitionModules"
             },
             {
-              "id": "tutorial-basics/markdown-features",
-              "path": "/docs/tutorial-basics/markdown-features",
-              "sidebar": "tutorialSidebar"
+              "id": "ignition-modules/bartender/printing/btxml",
+              "path": "/docs/ignition-modules/bartender/printing/btxml",
+              "sidebar": "ignitionModules"
             },
             {
-              "id": "tutorial-extras/manage-docs-versions",
-              "path": "/docs/tutorial-extras/manage-docs-versions",
-              "sidebar": "tutorialSidebar"
+              "id": "ignition-modules/bartender/printing/index",
+              "path": "/docs/ignition-modules/bartender/printing/",
+              "sidebar": "ignitionModules"
             },
             {
-              "id": "tutorial-extras/translate-your-site",
-              "path": "/docs/tutorial-extras/translate-your-site",
-              "sidebar": "tutorialSidebar"
+              "id": "ignition-modules/bartender/scripting/index",
+              "path": "/docs/ignition-modules/bartender/scripting/",
+              "sidebar": "ignitionModules"
             },
             {
-              "id": "/category/tutorial---basics",
-              "path": "/docs/category/tutorial---basics",
-              "sidebar": "tutorialSidebar"
+              "id": "ignition-modules/bartender/scripting/runAsync",
+              "path": "/docs/ignition-modules/bartender/scripting/runAsync",
+              "sidebar": "ignitionModules"
             },
             {
-              "id": "/category/tutorial---extras",
-              "path": "/docs/category/tutorial---extras",
-              "sidebar": "tutorialSidebar"
+              "id": "ignition-modules/bartender/scripting/runBlocking",
+              "path": "/docs/ignition-modules/bartender/scripting/runBlocking",
+              "sidebar": "ignitionModules"
+            },
+            {
+              "id": "ignition-modules/index",
+              "path": "/docs/ignition-modules/",
+              "sidebar": "ignitionModules"
             }
           ],
           "draftIds": [],
           "sidebars": {
-            "tutorialSidebar": {
+            "ignitionModules": {
               "link": {
-                "path": "/docs/intro",
-                "label": "intro"
+                "path": "/docs/ignition-modules/",
+                "label": "Ignition Modules"
               }
             }
           }

@@ -4,15 +4,15 @@
  * Modify the docusaurus.config.js file at your site's root instead.
  */
 export default {
-  "title": "My Site",
-  "tagline": "Dinosaurs are cool",
-  "url": "https://your-docusaurus-test-site.com",
+  "title": "Musson Industrial",
+  "tagline": "Public Documentation Home",
+  "url": "https://docs.mussonindustrial.com",
   "baseUrl": "/",
   "onBrokenLinks": "throw",
   "onBrokenMarkdownLinks": "warn",
   "favicon": "img/favicon.ico",
-  "organizationName": "facebook",
-  "projectName": "docusaurus",
+  "organizationName": "mussonindustrial",
+  "projectName": "public-docs",
   "i18n": {
     "defaultLocale": "en",
     "locales": [
@@ -26,12 +26,10 @@ export default {
       "classic",
       {
         "docs": {
-          "sidebarPath": "D:\\Projects\\Musson Industrial\\public-docs\\sidebars.js",
-          "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/"
+          "sidebarPath": "D:\\Projects\\Musson Industrial\\public-docs\\sidebars.js"
         },
         "blog": {
-          "showReadingTime": true,
-          "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/"
+          "showReadingTime": true
         },
         "theme": {
           "customCss": "D:\\Projects\\Musson Industrial\\public-docs\\src\\css\\custom.css"
@@ -41,26 +39,26 @@ export default {
   ],
   "themeConfig": {
     "navbar": {
-      "title": "My Site",
+      "title": "Documentation",
       "logo": {
-        "alt": "My Site Logo",
+        "alt": "Musson Industrial Emblem",
         "src": "img/logo.svg"
       },
       "items": [
         {
           "type": "doc",
-          "docId": "intro",
+          "docId": "ignition-modules/index",
           "position": "left",
-          "label": "Tutorial"
+          "label": "Ignition Modules"
         },
         {
-          "to": "/blog",
-          "label": "Blog",
-          "position": "left"
+          "href": "https://mussonindustrial.com/downloads",
+          "label": "Downloads",
+          "position": "right"
         },
         {
-          "href": "https://github.com/facebook/docusaurus",
-          "label": "GitHub",
+          "href": "https://mussonindustrial.com/sales",
+          "label": "Sales",
           "position": "right"
         }
       ],
@@ -70,28 +68,11 @@ export default {
       "style": "dark",
       "links": [
         {
-          "title": "Docs",
+          "title": "Ignition Modules",
           "items": [
             {
-              "label": "Tutorial",
-              "to": "/docs/intro"
-            }
-          ]
-        },
-        {
-          "title": "Community",
-          "items": [
-            {
-              "label": "Stack Overflow",
-              "href": "https://stackoverflow.com/questions/tagged/docusaurus"
-            },
-            {
-              "label": "Discord",
-              "href": "https://discordapp.com/invite/docusaurus"
-            },
-            {
-              "label": "Twitter",
-              "href": "https://twitter.com/docusaurus"
+              "label": "BarTender Module",
+              "href": "/docs/ignition-modules/bartender"
             }
           ]
         },
@@ -99,17 +80,13 @@ export default {
           "title": "More",
           "items": [
             {
-              "label": "Blog",
-              "to": "/blog"
-            },
-            {
               "label": "GitHub",
-              "href": "https://github.com/facebook/docusaurus"
+              "href": "https://github.com/mussonindustrial"
             }
           ]
         }
       ],
-      "copyright": "Copyright © 2022 My Project, Inc. Built with Docusaurus."
+      "copyright": "Copyright © 2022 Musson Industrial"
     },
     "prism": {
       "theme": {
@@ -315,17 +292,17 @@ export default {
         }
       ]
     },
+    "docs": {
+      "sidebar": {
+        "autoCollapseCategories": true,
+        "hideable": false
+      },
+      "versionPersistence": "localStorage"
+    },
     "colorMode": {
       "defaultMode": "light",
       "disableSwitch": false,
       "respectPrefersColorScheme": false
-    },
-    "docs": {
-      "versionPersistence": "localStorage",
-      "sidebar": {
-        "hideable": false,
-        "autoCollapseCategories": false
-      }
     },
     "metadata": [],
     "tableOfContents": {

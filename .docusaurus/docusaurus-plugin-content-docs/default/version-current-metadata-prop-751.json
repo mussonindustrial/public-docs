@@ -8,135 +8,161 @@
   "className": "docs-version-current",
   "isLast": true,
   "docsSidebars": {
-    "tutorialSidebar": [
-      {
-        "type": "link",
-        "label": "Tutorial Intro",
-        "href": "/docs/intro",
-        "docId": "intro"
-      },
+    "ignitionModules": [
       {
         "type": "category",
-        "label": "Tutorial - Basics",
-        "collapsible": true,
-        "collapsed": true,
+        "label": "Ignition Modules",
         "items": [
           {
-            "type": "link",
-            "label": "Create a Page",
-            "href": "/docs/tutorial-basics/create-a-page",
-            "docId": "tutorial-basics/create-a-page"
-          },
-          {
-            "type": "link",
-            "label": "Create a Document",
-            "href": "/docs/tutorial-basics/create-a-document",
-            "docId": "tutorial-basics/create-a-document"
-          },
-          {
-            "type": "link",
-            "label": "Create a Blog Post",
-            "href": "/docs/tutorial-basics/create-a-blog-post",
-            "docId": "tutorial-basics/create-a-blog-post"
-          },
-          {
-            "type": "link",
-            "label": "Markdown Features",
-            "href": "/docs/tutorial-basics/markdown-features",
-            "docId": "tutorial-basics/markdown-features"
-          },
-          {
-            "type": "link",
-            "label": "Deploy your site",
-            "href": "/docs/tutorial-basics/deploy-your-site",
-            "docId": "tutorial-basics/deploy-your-site"
-          },
-          {
-            "type": "link",
-            "label": "Congratulations!",
-            "href": "/docs/tutorial-basics/congratulations",
-            "docId": "tutorial-basics/congratulations"
+            "type": "category",
+            "label": "BarTender Drivers Module",
+            "items": [
+              {
+                "type": "link",
+                "label": "Installation",
+                "href": "/docs/ignition-modules/bartender/installation",
+                "docId": "ignition-modules/bartender/installation"
+              },
+              {
+                "type": "category",
+                "label": "Creating and Configuring Connections",
+                "items": [
+                  {
+                    "type": "link",
+                    "label": "Connecting to Web Service Integration",
+                    "href": "/docs/ignition-modules/bartender/connections/web-service",
+                    "docId": "ignition-modules/bartender/connections/web-service"
+                  },
+                  {
+                    "type": "link",
+                    "label": "Connecting to TCP Socket Integration",
+                    "href": "/docs/ignition-modules/bartender/connections/tcp-socket",
+                    "docId": "ignition-modules/bartender/connections/tcp-socket"
+                  }
+                ],
+                "collapsed": true,
+                "collapsible": true,
+                "href": "/docs/ignition-modules/bartender/connections/"
+              },
+              {
+                "type": "category",
+                "label": "Sending Print Commands",
+                "items": [
+                  {
+                    "type": "link",
+                    "label": "Working with BTXML",
+                    "href": "/docs/ignition-modules/bartender/printing/btxml",
+                    "docId": "ignition-modules/bartender/printing/btxml"
+                  }
+                ],
+                "collapsed": true,
+                "collapsible": true,
+                "href": "/docs/ignition-modules/bartender/printing/"
+              },
+              {
+                "type": "category",
+                "label": "Scripting",
+                "items": [
+                  {
+                    "type": "link",
+                    "label": "system.bartender.runAsync",
+                    "href": "/docs/ignition-modules/bartender/scripting/runAsync",
+                    "docId": "ignition-modules/bartender/scripting/runAsync"
+                  },
+                  {
+                    "type": "link",
+                    "label": "system.bartender.runBlocking",
+                    "href": "/docs/ignition-modules/bartender/scripting/runBlocking",
+                    "docId": "ignition-modules/bartender/scripting/runBlocking"
+                  }
+                ],
+                "collapsed": true,
+                "collapsible": true,
+                "href": "/docs/ignition-modules/bartender/scripting/"
+              }
+            ],
+            "collapsed": true,
+            "collapsible": true,
+            "href": "/docs/ignition-modules/bartender/"
           }
         ],
-        "href": "/docs/category/tutorial---basics"
-      },
-      {
-        "type": "category",
-        "label": "Tutorial - Extras",
-        "collapsible": true,
         "collapsed": true,
-        "items": [
-          {
-            "type": "link",
-            "label": "Manage Docs Versions",
-            "href": "/docs/tutorial-extras/manage-docs-versions",
-            "docId": "tutorial-extras/manage-docs-versions"
-          },
-          {
-            "type": "link",
-            "label": "Translate your site",
-            "href": "/docs/tutorial-extras/translate-your-site",
-            "docId": "tutorial-extras/translate-your-site"
-          }
-        ],
-        "href": "/docs/category/tutorial---extras"
+        "collapsible": true,
+        "href": "/docs/ignition-modules/"
       }
     ]
   },
   "docs": {
-    "intro": {
-      "id": "intro",
-      "title": "Tutorial Intro",
-      "description": "Let's discover Docusaurus in less than 5 minutes.",
-      "sidebar": "tutorialSidebar"
+    "ignition-modules/bartender/connection-creation": {
+      "id": "ignition-modules/bartender/connection-creation",
+      "title": "Creating and Configuring Connections",
+      "description": "BarTender provides many ways to integrate with other business systems."
     },
-    "tutorial-basics/congratulations": {
-      "id": "tutorial-basics/congratulations",
-      "title": "Congratulations!",
-      "description": "You have just learned the basics of Docusaurus and made some changes to the initial template.",
-      "sidebar": "tutorialSidebar"
+    "ignition-modules/bartender/connections/index": {
+      "id": "ignition-modules/bartender/connections/index",
+      "title": "Creating and Configuring Connections",
+      "description": "BarTender provides many ways to integrate with other business systems.",
+      "sidebar": "ignitionModules"
     },
-    "tutorial-basics/create-a-blog-post": {
-      "id": "tutorial-basics/create-a-blog-post",
-      "title": "Create a Blog Post",
-      "description": "Docusaurus creates a page for each blog post, but also a blog index page, a tag system, an RSS feed...",
-      "sidebar": "tutorialSidebar"
+    "ignition-modules/bartender/connections/tcp-socket": {
+      "id": "ignition-modules/bartender/connections/tcp-socket",
+      "title": "Connecting to TCP Socket Integration",
+      "description": "",
+      "sidebar": "ignitionModules"
     },
-    "tutorial-basics/create-a-document": {
-      "id": "tutorial-basics/create-a-document",
-      "title": "Create a Document",
-      "description": "Documents are groups of pages connected through:",
-      "sidebar": "tutorialSidebar"
+    "ignition-modules/bartender/connections/web-service": {
+      "id": "ignition-modules/bartender/connections/web-service",
+      "title": "Connecting to Web Service Integration",
+      "description": "",
+      "sidebar": "ignitionModules"
     },
-    "tutorial-basics/create-a-page": {
-      "id": "tutorial-basics/create-a-page",
-      "title": "Create a Page",
-      "description": "Add Markdown or React files to src/pages to create a standalone page:",
-      "sidebar": "tutorialSidebar"
+    "ignition-modules/bartender/index": {
+      "id": "ignition-modules/bartender/index",
+      "title": "BarTender Drivers Module",
+      "description": "Data2",
+      "sidebar": "ignitionModules"
     },
-    "tutorial-basics/deploy-your-site": {
-      "id": "tutorial-basics/deploy-your-site",
-      "title": "Deploy your site",
-      "description": "Docusaurus is a static-site-generator (also called Jamstack).",
-      "sidebar": "tutorialSidebar"
+    "ignition-modules/bartender/installation": {
+      "id": "ignition-modules/bartender/installation",
+      "title": "Installation",
+      "description": "The following section is an excerpt from the official Ignition documentation.",
+      "sidebar": "ignitionModules"
     },
-    "tutorial-basics/markdown-features": {
-      "id": "tutorial-basics/markdown-features",
-      "title": "Markdown Features",
-      "description": "Docusaurus supports Markdown and a few additional features.",
-      "sidebar": "tutorialSidebar"
+    "ignition-modules/bartender/printing/btxml": {
+      "id": "ignition-modules/bartender/printing/btxml",
+      "title": "Working with BTXML",
+      "description": "",
+      "sidebar": "ignitionModules"
     },
-    "tutorial-extras/manage-docs-versions": {
-      "id": "tutorial-extras/manage-docs-versions",
-      "title": "Manage Docs Versions",
-      "description": "Docusaurus can manage multiple versions of your docs.",
-      "sidebar": "tutorialSidebar"
+    "ignition-modules/bartender/printing/index": {
+      "id": "ignition-modules/bartender/printing/index",
+      "title": "Sending Print Commands",
+      "description": "",
+      "sidebar": "ignitionModules"
     },
-    "tutorial-extras/translate-your-site": {
-      "id": "tutorial-extras/translate-your-site",
-      "title": "Translate your site",
-      "description": "Let's translate docs/intro.md to French.",
-      "sidebar": "tutorialSidebar"
+    "ignition-modules/bartender/scripting/index": {
+      "id": "ignition-modules/bartender/scripting/index",
+      "title": "Scripting",
+      "description": "",
+      "sidebar": "ignitionModules"
+    },
+    "ignition-modules/bartender/scripting/runAsync": {
+      "id": "ignition-modules/bartender/scripting/runAsync",
+      "title": "system.bartender.runAsync",
+      "description": "Signature",
+      "sidebar": "ignitionModules"
+    },
+    "ignition-modules/bartender/scripting/runBlocking": {
+      "id": "ignition-modules/bartender/scripting/runBlocking",
+      "title": "system.bartender.runBlocking",
+      "description": "",
+      "sidebar": "ignitionModules"
+    },
+    "ignition-modules/index": {
+      "id": "ignition-modules/index",
+      "title": "Ignition Modules",
+      "description": "Find us on Inductive Automation's 3rd Party Module Showcase!",
+      "sidebar": "ignitionModules"
     }
   }
 }
