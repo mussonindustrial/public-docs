@@ -2,6 +2,8 @@
 sidebar_position: 1
 ---
 
+import APITable from '@site/src/components/APITable';
+
 # system.bartender.runAsync
 
 **Asynchronously** runs a BarTender integration.
@@ -19,10 +21,18 @@ system.bartender.runAsync(connectionName, data)
 
 ### Parameters
 
+```mdx-code-block
+<APITable>
+```
+
 | Type | Parameter | Description |
 | --- | --- | --- |
 | _String_ | connectionName | The name of the BarTender connection to trigger. The function will throw an error if the specified connectionName does not exist on the host gateway. |
 | _BTXMLScript, PyDictionary, String_ | data | The input data to provide the BarTender integration. 
+
+```mdx-code-block
+</APITable>
+```
 
 ### Returns
 _**PyCompletableFuture**&lt;QualifiedResponse>_ - A _PyCompletableFuture_ containing the response from the integration.
@@ -36,6 +46,11 @@ In order to execute asynchronously this function returns a *PyCompletableFuture*
 This is wrapper around a Java `CompletableFuture` with convenience functions for interacting with Python scripting. *PyCompletableFuture* functions very similarly to the *Promise* objects returned from `system.net.httpClient` calls. 
 
 #### Methods
+
+```mdx-code-block
+<APITable>
+```
+
 | Signature | Returns | Description |
 | --- | --- | ---|
 | getFuture() | _CompletableFuture_ | Returns the raw underlying `CompletableFuture`. |
@@ -44,6 +59,10 @@ This is wrapper around a Java `CompletableFuture` with convenience functions for
 | then(_callback_) |  _PyCompletableFuture_ | Return a new _PyCompletableFuture_ that wraps this one's return value in a Python callable. |
 | handleException(_callback_) | _PyCompletableFuture_ | Return a new _PyCompletableFuture_ that will run the provided callback in the event of an exception, to attempt graceful error handling. |
 | whenComplete(_callback_) | _None_ | Call callback, asynchronously, whenever this future completes. |
+
+```mdx-code-block
+</APITable>
+```
 
 :::warning
 The response handlers (`then`, `handleException` and `whenComplete` all run on asynchronous threads. **Do not** attempt to read or write property values in these callbacks or client deadlocking will occur.
