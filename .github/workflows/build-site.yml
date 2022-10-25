@@ -30,4 +30,4 @@ jobs:
         npm run build
                           
     - name: Backblaze B2 Upload
-      run: b2 sync --delete --skipNewer ./build b2://${{ secrets.B2_BUCKET }}
+      run: b2 sync --delete ./build b2://${{ secrets.B2_BUCKET }}
