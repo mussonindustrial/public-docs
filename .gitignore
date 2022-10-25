@@ -128,4 +128,4 @@ dist
 
 # Docusaurus
 build
-.docusaurus
+.docusaurus/
