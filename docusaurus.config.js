@@ -49,7 +49,7 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       navbar: {
-        title: 'Documentation',
+        title: 'Musson Industrial',
         logo: {
           alt: 'Musson Industrial Emblem',
           src: 'img/logo.svg',
@@ -100,6 +100,7 @@ const config = {
       prism: {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
+        additionalLanguages: ['python'],
       },
       docs: {
         sidebar: {
