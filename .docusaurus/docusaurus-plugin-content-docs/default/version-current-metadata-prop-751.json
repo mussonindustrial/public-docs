@@ -119,7 +119,7 @@
     "ignition-modules/bartender/index": {
       "id": "ignition-modules/bartender/index",
       "title": "BarTender Drivers Module",
-      "description": "Data2",
+      "description": "Musson Industrial's BarTender Drivers Modules offers a quick and easy way to integrate the printing power of BarTender with the flexibility of the Ignition Platform.",
       "sidebar": "ignitionModules"
     },
     "ignition-modules/bartender/installation": {
@@ -149,7 +149,7 @@
     "ignition-modules/bartender/scripting/runAsync": {
       "id": "ignition-modules/bartender/scripting/runAsync",
       "title": "system.bartender.runAsync",
-      "description": "Signature",
+      "description": "Asynchronously runs a BarTender integration.",
       "sidebar": "ignitionModules"
     },
     "ignition-modules/bartender/scripting/runBlocking": {

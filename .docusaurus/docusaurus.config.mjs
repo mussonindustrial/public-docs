@@ -39,7 +39,7 @@ export default {
   ],
   "themeConfig": {
     "navbar": {
-      "title": "Documentation",
+      "title": "Musson Industrial",
       "logo": {
         "alt": "Musson Industrial Emblem",
         "src": "img/logo.svg"
@@ -280,7 +280,9 @@ export default {
           }
         ]
       },
-      "additionalLanguages": [],
+      "additionalLanguages": [
+        "python"
+      ],
       "magicComments": [
         {
           "className": "theme-code-block-highlighted-line",
