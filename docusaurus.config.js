@@ -32,10 +32,11 @@ const config = {
     [
       'classic',
       /** @type {import('@docusaurus/preset-classic').Options} */
-      /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
+          docLayoutComponent: "@theme/DocPage",
+          docItemComponent: "@theme/ApiItem" // add @theme/ApiItem here
         },
         blog: {
           showReadingTime: true,
@@ -47,6 +48,27 @@ const config = {
     ],
   ],
 
+  plugins: [
+    [
+      "docusaurus-plugin-openapi-docs",
+      {
+        id: "openapi",
+        docsPluginId: "classic",
+        config: {
+          cdn: { // "petstore" is considered the <id> that you will reference in the CLI
+            specPath: "https://cdn.mussonindustrial.com/openapi.json", // path or URL to the OpenAPI spec
+            outputDir: "docs/api/cdn", // output directory for generated *.mdx and sidebar.js files
+            sidebarOptions: {
+              groupPathsBy: "tag", // generate a sidebar.js slice that groups operations by tag
+            },
+            template: "api.mustache"
+          }
+        }
+      },
+    ]
+  ],
+
+  themes: ["docusaurus-theme-openapi-docs"], // exports ApiItem and ApiDemoPanel
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
@@ -59,10 +81,26 @@ const config = {
         hideOnScroll: true,
         items: [
           {
-            type: 'doc',
-            docId: 'ignition-modules/index',
-            position: 'left',
+            type: 'dropdown',
             label: 'Ignition Modules',
+            position: 'left',
+            items: [
+              {
+                label: 'BarTender Drivers',
+                to: 'docs/ignition-modules/bartender'
+              }
+            ]
+          },
+          {
+            type: 'dropdown',
+            label: 'API',
+            position: 'left',
+            items: [
+              {
+                label: 'CDN',
+                to: 'docs/category/musson-industrial-cdn-api'
+              }
+            ]
           },
           {
             type: 'search',
@@ -107,8 +145,54 @@ const config = {
       prism: {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
-        additionalLanguages: ['python'],
+        additionalLanguages: ['python', "ruby", "csharp", "php", "java"],
       },
+      languageTabs: [
+        {
+          highlight: "bash",
+          language: "curl",
+          logoClass: "bash",
+        },
+        {
+          highlight: "python",
+          language: "python",
+          logoClass: "python",
+          variant: "http.client",
+        },
+        {
+          highlight: "go",
+          language: "go",
+          logoClass: "go",
+        },
+        {
+          highlight: "javascript",
+          language: "nodejs",
+          logoClass: "nodejs",
+          variant: "request",
+        },
+        // {
+        //   highlight: "ruby",
+        //   language: "ruby",
+        //   logoClass: "ruby",
+        // },
+        {
+          highlight: "csharp",
+          language: "csharp",
+          logoClass: "csharp",
+          variant: "httpclient",
+        },
+        // {
+        //   highlight: "php",
+        //   language: "php",
+        //   logoClass: "php",
+        // },
+        {
+          highlight: "java",
+          language: "java",
+          logoClass: "java",
+          variant: "unirest",
+        },
+      ],
       docs: {
         sidebar: {
           autoCollapseCategories: true,
