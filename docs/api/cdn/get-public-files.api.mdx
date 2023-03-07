@@ -1,11 +1,11 @@
 ---
 id: get-public-files
-title: "Serves publicly available files."
-description: "Serves publicly available files."
-sidebar_label: "Serves publicly available files."
+title: "Get public file"
+description: "Get public file"
+sidebar_label: "Get public file"
 hide_title: true
 hide_table_of_contents: true
-api: {"operationId":"get_PublicFiles","tags":["Files"],"responses":{"200":{"description":"Successful Response","content":{"application/json":{"schema":{"type":"object","properties":{"data":{"type":"string","description":"File contents","format":"Binary"}},"required":["data"]}}}},"404":{"description":"Successful Response","content":{"application/json":{"schema":{"type":"object","properties":{"success":{"type":"boolean","example":false},"error":{"type":"string","example":"Object not found"}},"required":["success","error"]}}}}},"parameters":[],"description":"Serves publicly available files.","method":"get","path":"/files/public/*","servers":[{"url":"https://cdn.mussonindustrial.com","description":"Primary"}],"securitySchemes":{"bearerAuth":{"type":"http","scheme":"bearer","bearerFormat":"JWT","description":"API Key generated from /api/v1/auth"}},"info":{"title":"Musson Industrial CDN API","description":"API Access to Musson Industrial's CDN.","version":"1.0"},"postman":{"name":"Serves publicly available files.","description":{"type":"text/plain"},"url":{"path":["files","public","*"],"host":["{{baseUrl}}"],"query":[],"variable":[]},"header":[{"key":"Accept","value":"application/json"}],"method":"GET"}}
+api: {"operationId":"get_PublicFiles","tags":["Files"],"responses":{"200":{"description":"Successful Response","content":{"application/json":{"schema":{"type":"object","properties":{"data":{"type":"string","description":"File contents","format":"Binary"}},"required":["data"]}}}},"404":{"description":"Successful Response","content":{"application/json":{"schema":{"type":"object","properties":{"success":{"type":"boolean","example":false},"error":{"type":"string","example":"Object not found"}},"required":["success","error"]}}}}},"parameters":[],"description":"Get public file","method":"get","path":"/files/public/*","servers":[{"url":"https://cdn.mussonindustrial.com","description":"Primary"}],"securitySchemes":{"bearerAuth":{"type":"http","scheme":"bearer","bearerFormat":"JWT","description":"API Key generated from /api/v1/auth"}},"info":{"title":"Musson Industrial CDN API","description":"API Access to Musson Industrial's CDN.","version":"1.0"},"postman":{"name":"Get public file","description":{"type":"text/plain"},"url":{"path":["files","public","*"],"host":["{{baseUrl}}"],"query":[],"variable":[]},"header":[{"key":"Accept","value":"application/json"}],"method":"GET"}}
 sidebar_class_name: "get api-method"
 info_path: docs/api/cdn/musson-industrial-cdn-api
 custom_edit_url: null
@@ -20,11 +20,11 @@ import SchemaTabs from "@theme/SchemaTabs";
 import DiscriminatorTabs from "@theme/DiscriminatorTabs";
 import TabItem from "@theme/TabItem";
 
-## Serves publicly available files.
+## Get public file
 
 
 
-Serves publicly available files.
+Get public file
 
 <div><ApiTabs><TabItem label={"200"} value={"200"}><div>
 

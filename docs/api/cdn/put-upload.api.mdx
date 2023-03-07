@@ -1,11 +1,11 @@
 ---
 id: put-upload
-title: "Upload files to the repository"
-description: "Upload files to the repository"
-sidebar_label: "Upload files to the repository"
+title: "Upload a file"
+description: "Upload a file"
+sidebar_label: "Upload a file"
 hide_title: true
 hide_table_of_contents: true
-api: {"operationId":"put_Upload","tags":["Files"],"security":[{"bearerAuth":[]}],"parameters":[],"responses":{"200":{"description":"Successful Response","content":{"application/json":{"schema":{"type":"object","properties":{"success":{"type":"boolean","example":true}},"required":["success"]}}}}},"description":"Upload files to the repository","method":"put","path":"/files/public/*","servers":[{"url":"https://cdn.mussonindustrial.com","description":"Primary"}],"securitySchemes":{"bearerAuth":{"type":"http","scheme":"bearer","bearerFormat":"JWT","description":"API Key generated from /api/v1/auth"}},"info":{"title":"Musson Industrial CDN API","description":"API Access to Musson Industrial's CDN.","version":"1.0"},"postman":{"name":"Upload files to the repository","description":{"type":"text/plain"},"url":{"path":["files","public","*"],"host":["{{baseUrl}}"],"query":[],"variable":[]},"header":[{"key":"Accept","value":"application/json"}],"method":"PUT","auth":{"type":"bearer","bearer":[{"type":"any","value":"<Bearer Token>","key":"token"}]}}}
+api: {"operationId":"put_Upload","tags":["Files"],"security":[{"bearerAuth":[]}],"parameters":[],"responses":{"200":{"description":"Successful Response","content":{"application/json":{"schema":{"type":"object","properties":{"success":{"type":"boolean","example":true}},"required":["success"]}}}}},"description":"Upload a file","method":"put","path":"/files/public/*","servers":[{"url":"https://cdn.mussonindustrial.com","description":"Primary"}],"securitySchemes":{"bearerAuth":{"type":"http","scheme":"bearer","bearerFormat":"JWT","description":"API Key generated from /api/v1/auth"}},"info":{"title":"Musson Industrial CDN API","description":"API Access to Musson Industrial's CDN.","version":"1.0"},"postman":{"name":"Upload a file","description":{"type":"text/plain"},"url":{"path":["files","public","*"],"host":["{{baseUrl}}"],"query":[],"variable":[]},"header":[{"key":"Accept","value":"application/json"}],"method":"PUT","auth":{"type":"bearer","bearer":[{"type":"any","value":"<Bearer Token>","key":"token"}]}}}
 sidebar_class_name: "put api-method"
 info_path: docs/api/cdn/musson-industrial-cdn-api
 custom_edit_url: null
@@ -20,11 +20,11 @@ import SchemaTabs from "@theme/SchemaTabs";
 import DiscriminatorTabs from "@theme/DiscriminatorTabs";
 import TabItem from "@theme/TabItem";
 
-## Upload files to the repository
+## Upload a file
 
 
 
-Upload files to the repository
+Upload a file
 
 <div><ApiTabs><TabItem label={"200"} value={"200"}><div>
 
