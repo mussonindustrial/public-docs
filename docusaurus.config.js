@@ -86,7 +86,7 @@ const config = {
             position: 'left',
             items: [
               {
-                label: 'BarTender Drivers',
+                label: 'BarTender Drivers (Prerelease)',
                 to: 'docs/ignition-modules/bartender'
               }
             ]
@@ -125,7 +125,7 @@ const config = {
             title: 'Ignition Modules',
             items: [
               {
-                label: 'BarTender Module',
+                label: 'BarTender Drivers (Prerelease)',
                 href: '/docs/ignition-modules/bartender',
               },
             ],

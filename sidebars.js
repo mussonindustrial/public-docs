@@ -42,7 +42,7 @@ const sidebars = {
       items: [
         {
           type: 'category',
-          label: 'BarTender Drivers Module',
+          label: 'BarTender Drivers (Prerelease)',
           link: {
             type: 'doc',
             id: 'ignition-modules/bartender/index'
