@@ -8,7 +8,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Musson Industrial',
-  tagline: 'Public Documentation Home',
+  tagline: 'Public Documentation',
   url: 'https://docs.mussonindustrial.com',
   baseUrl: '/',
   onBrokenLinks: 'throw',
@@ -117,7 +117,7 @@ const config = {
       announcementBar: {
         id: 'module_trials',
         content:
-          'Download and try our modules today!',
+          'Download the new release of our BarTender Drivers Module!',
         backgroundColor: '#fafbfc',
         textColor: '#091E42',
         isCloseable: true,
