@@ -1,0 +1,33 @@
+---
+id: put-upload
+title: "Upload a file"
+description: "Upload a file"
+sidebar_label: "Upload a file"
+hide_title: true
+hide_table_of_contents: true
+api: {"operationId":"put_Upload","tags":["Files"],"security":[{"bearerAuth":[]}],"parameters":[],"responses":{"200":{"description":"Successful Response","content":{"application/json":{"schema":{"type":"object","properties":{"success":{"type":"boolean","example":true}},"required":["success"]}}}}},"description":"Upload a file","method":"put","path":"/files/public/*","servers":[{"url":"https://cdn.mussonindustrial.com","description":"Primary"}],"securitySchemes":{"bearerAuth":{"type":"http","scheme":"bearer","bearerFormat":"JWT","description":"API Key generated from /api/v1/auth"}},"info":{"title":"Musson Industrial CDN API","description":"API Access to Musson Industrial's CDN.","version":"1.0"},"postman":{"name":"Upload a file","description":{"type":"text/plain"},"url":{"path":["files","public","*"],"host":["{{baseUrl}}"],"query":[],"variable":[]},"header":[{"key":"Accept","value":"application/json"}],"method":"PUT","auth":{"type":"bearer","bearer":[{"type":"any","value":"<Bearer Token>","key":"token"}]}}}
+sidebar_class_name: "put api-method"
+info_path: docs/api/cdn/musson-industrial-cdn-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import TabItem from "@theme/TabItem";
+
+## Upload a file
+
+
+
+Upload a file
+
+<div><ApiTabs><TabItem label={"200"} value={"200"}><div>
+
+Successful Response
+
+</div><div><MimeTabs schemaType={"response"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs><TabItem label={"Schema"} value={"Schema"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"success"} required={true} schemaName={"boolean"} qualifierMessage={undefined} schema={{"type":"boolean","example":true}}></SchemaItem></ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"{\n  \"success\": true\n}"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem></ApiTabs></div>
