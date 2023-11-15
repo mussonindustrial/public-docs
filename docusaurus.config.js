@@ -76,8 +76,11 @@ const config = {
         title: 'Musson Industrial',
         logo: {
           alt: 'Musson Industrial Emblem',
-          src: 'img/logo.svg',
-        },
+          src: 'https://cdn.mussonindustrial.com/files/public/images/emblem.svg',
+          srcDark: 'https://cdn.mussonindustrial.com/files/public/images/emblem.svg',
+          height: 10,
+          width: 45
+      },
         hideOnScroll: true,
         items: [
           {

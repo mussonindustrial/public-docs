@@ -1,0 +1,233 @@
+---
+sidebar_position: 1
+---
+
+import APITable from '@site/src/components/APITable';
+
+# JSON Schema
+
+Below is the full JSON schema used for parsing BTXML.
+This schema is used for  [`system.bartender.btxml.fromDict`](scripting/../fromDict).
+
+
+
+```json title="BTXML JSON Parsing Schema"
+{
+    "version": 2.0,
+    "name": "BTXML Script",
+    "id": "31112",
+    "commands": [{
+        "name": "Command1",
+        "repeatCount": 1,
+        "actions": [{
+                "type": "Print",
+                "jobName": "Job1",
+                "waitForJobToComplete": false,
+                "timeout": 10000,
+                "returnPrintData": false,
+                "returnSummary": true,
+                "returnLabelData": true,
+                "returnChecksum": false,
+                "format": {
+                    "documentPath": "Document1.btw",
+                    "closeAtEndOfJob": true,
+                    "documentPassword": "password123",
+                    "saveAtEndOfJob": false
+                },
+                "licenseServer": {
+                    "address": "",
+                    "alternateAddress": "",
+                    "alternatePort": 1234,
+                    "alternateRetries": 1,
+                    "alternateTimeout": 10000,
+                    "port": 1234,
+                    "retries": 1,
+                    "timeout": 10000
+                },
+                "mediaHandling": {
+                    "action": "",
+                    "dataItemName": "",
+                    "dataItemType": "",
+                    "ignoreCase": "",
+                    "numberLabels": "",
+                    "occurrence": ""
+                },
+                "namedSubStrings": [{
+                    "name": "Named Data Source",
+                    "value": "Text Value"
+                }],
+
+                "printSetup": {
+                    "autoPrintAgain": false,
+                    "enablePrompting": false,
+                    "identicalCopiesOfLabel": false,
+                    "numberSerializedLabels": 0,
+                    "paperTray": "Tray 1",
+                    "printer": "Printer1",
+                    "printToFile": false,
+                    "printToFileLicense": "",
+                    "printToFileName": "FileName.png",
+                    "recordRange": "1-10",
+                    "startingPosition": 0,
+                    "useDatabase": false,
+                    "performance": {
+                        "allowFormatCaching": false,
+                        "allowGraphicsCaching": false,
+                        "allowSerialization": false,
+                        "allowStaticGraphics": false,
+                        "allowStaticObjects": false,
+                        "allowVariableDataOptimization": false,
+                        "warnWhenUsingTrueTypeFonts": false
+                    }
+                },
+                "queryPrompts": [{
+                    "name": "Prompt1",
+                    "defaultReply": "",
+                    "userPrompt": "Prompt?",
+                    "vale": ""
+                }],
+                "recordSets": [{
+                    "name": "RecordSet1",
+                    "type": "btXML",
+                    "addIfNone": false,
+                    "delimitation": "btDelimComma",
+                    "fieldDelimiter": " ",
+                    "fileName": "",
+                    "numberOfFields": 5,
+                    "password": "password",
+                    "sqlStatement": "",
+                    "textData": "",
+                    "userFieldNamesFromFirstRecord": false,
+                    "userId": "123123"
+                }]
+            },
+            {
+                "type": "FormatSetup",
+                "format": {
+                    "documentPath": "Document1.btw",
+                    "closeAtEndOfJob": true,
+                    "documentPassword": "password123",
+                    "saveAtEndOfJob": false
+                },
+                "licenseServer": {
+                    "address": "",
+                    "alternateAddress": "",
+                    "alternatePort": 1234,
+                    "alternateRetries": 1,
+                    "alternateTimeout": 10000,
+                    "port": 1234,
+                    "retries": 1,
+                    "timeout": 10000
+                },
+                "mediaHandling": {
+                    "action": "",
+                    "dataItemName": "",
+                    "dataItemType": "",
+                    "ignoreCase": "",
+                    "numberLabels": "",
+                    "occurrence": ""
+                },
+                "namedSubStrings": [{
+                    "name": "Named Data Source",
+                    "value": "Text Value"
+                }],
+
+                "printSetup": {
+                    "autoPrintAgain": false,
+                    "enablePrompting": false,
+                    "identicalCopiesOfLabel": false,
+                    "numberSerializedLabels": 0,
+                    "paperTray": "Tray 1",
+                    "printer": "Printer1",
+                    "printToFile": false,
+                    "printToFileLicense": "",
+                    "printToFileName": "FileName.png",
+                    "recordRange": "1-10",
+                    "startingPosition": 0,
+                    "useDatabase": false,
+                    "performance": {
+                        "allowFormatCaching": false,
+                        "allowGraphicsCaching": false,
+                        "allowSerialization": false,
+                        "allowStaticGraphics": false,
+                        "allowStaticObjects": false,
+                        "allowVariableDataOptimization": false,
+                        "warnWhenUsingTrueTypeFonts": false
+                    }
+                },
+                "queryPrompts": [{
+                    "name": "Prompt1",
+                    "defaultReply": "",
+                    "userPrompt": "Prompt?",
+                    "value": ""
+                }],
+                "recordSets": [{
+                    "name": "RecordSet1",
+                    "type": "btXML",
+                    "addIfNone": false,
+                    "delimitation": "btDelimComma",
+                    "fieldDelimiter": " ",
+                    "fileName": "",
+                    "numberOfFields": 5,
+                    "password": "password",
+                    "sqlStatement": "",
+                    "textData": "",
+                    "userFieldNamesFromFirstRecord": false,
+                    "userId": "123123"
+                }]
+            },
+            {
+                "type": "ExportPrintPreviewToImage",
+                "namedSubStrings": [{
+                    "name": "Named Data Source",
+                    "value": "Text Value"
+                }],
+
+                "printSetup": {
+                    "autoPrintAgain": false,
+                    "enablePrompting": false,
+                    "identicalCopiesOfLabel": false,
+                    "numberSerializedLabels": 0,
+                    "paperTray": "Tray 1",
+                    "printer": "Printer1",
+                    "printToFile": false,
+                    "printToFileLicense": "",
+                    "printToFileName": "FileName.png",
+                    "recordRange": "1-10",
+                    "startingPosition": 0,
+                    "useDatabase": false,
+                    "performance": {
+                        "allowFormatCaching": false,
+                        "allowGraphicsCaching": false,
+                        "allowSerialization": false,
+                        "allowStaticGraphics": false,
+                        "allowStaticObjects": false,
+                        "allowVariableDataOptimization": false,
+                        "warnWhenUsingTrueTypeFonts": false
+                    }
+                },
+                "queryPrompts": [{
+                    "name": "Prompt1",
+                    "defaultReply": "",
+                    "userPrompt": "Prompt?",
+                    "vale": ""
+                }],
+                "recordSets": [{
+                    "name": "RecordSet1",
+                    "type": "btXML",
+                    "addIfNone": false,
+                    "delimitation": "btDelimComma",
+                    "fieldDelimiter": " ",
+                    "fileName": "",
+                    "numberOfFields": 5,
+                    "password": "password",
+                    "sqlStatement": "",
+                    "textData": "",
+                    "userFieldNamesFromFirstRecord": false,
+                    "userId": "123123"
+                }]
+            }
+        ]
+    }]
+}
+```

@@ -4,13 +4,13 @@ sidebar_position: 1
 
 import APITable from '@site/src/components/APITable';
 
-# system.bartender.runAsync
+# runAsync
 
 **Asynchronously** runs a BarTender integration.
 This is the main method for **triggering actions** on the BarTender server.
 
 :::important
-Sibling method of [`system.bartender.runBlocking`](scripting/../runBlocking.md).
+Sibling method of [`system.bartender.runBlocking`](scripting/../runBlocking).
 :::
 
 ## Syntax
@@ -38,7 +38,7 @@ system.bartender.runAsync(connectionName, data)
 _**PyCompletableFuture**&lt;QualifiedResponse>_ - A _PyCompletableFuture_ containing the response from the integration.
 
 ### Scope
-Gateway, Vision Client, Perspective Session
+Gateway, Designer, Client, Perspective Session
 
 
 ### PyCompletableFuture

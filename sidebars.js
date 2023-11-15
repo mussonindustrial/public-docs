@@ -42,7 +42,7 @@ const sidebars = {
       items: [
         {
           type: 'category',
-          label: 'BarTender Drivers (Prerelease)',
+          label: 'BarTender Drivers (prerelease)',
           link: {
             type: 'doc',
             id: 'ignition-modules/bartender/index'
@@ -86,6 +86,10 @@ const sidebars = {
             //   ]
             // },
             {
+              type: 'doc',
+              id: 'ignition-modules/bartender/jsonSchema'
+            },
+            {
               type: 'category',
               label: 'Scripting',
               link: {
@@ -94,7 +98,11 @@ const sidebars = {
               },
               items: [
                 'ignition-modules/bartender/scripting/runAsync',
-                'ignition-modules/bartender/scripting/runBlocking'             
+                'ignition-modules/bartender/scripting/runBlocking',
+                'ignition-modules/bartender/scripting/fromDict',
+                'ignition-modules/bartender/scripting/fromJSON',
+                'ignition-modules/bartender/scripting/fromXML',         
+                'ignition-modules/bartender/scripting/newScript',    
               ]
             }
           ],
