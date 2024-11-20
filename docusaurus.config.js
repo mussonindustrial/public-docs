@@ -36,7 +36,9 @@ const config = {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
           docLayoutComponent: "@theme/DocPage",
-          docItemComponent: "@theme/ApiItem" // add @theme/ApiItem here
+          docItemComponent: "@theme/ApiItem",
+          showLastUpdateAuthor: true,
+          showLastUpdateTime: true
         },
         blog: {
           showReadingTime: true,
