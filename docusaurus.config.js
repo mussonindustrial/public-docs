@@ -140,14 +140,26 @@ const config = {
             title: 'Ignition Modules',
             items: [
               {
-                label: 'BarTender Drivers (Prerelease)',
-                href: '/docs/ignition-modules/bartender',
+                label: 'Embr-Charts',
+                to: '/docs/ignition-modules/embr-charts'
               },
+              {
+                label: 'Embr-Periscope',
+                to: '/docs/ignition-modules/embr-periscope'
+              },
+              {
+                label: 'Embr-Thermodynamics',
+                to: '/docs/ignition-modules/embr-thermodynamics'
+              }
             ],
           },
           {
             title: 'More',
             items: [
+              {
+                label: 'About Us',
+                href: 'https://mussonindustrial.com',
+              },
               {
                 label: 'GitHub',
                 href: 'https://github.com/mussonindustrial',

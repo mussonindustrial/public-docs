@@ -1,0 +1,24 @@
+---
+sidebar_position: 1
+---
+
+
+# Background
+
+## About the IAPWS
+[IAPWS] (_The International Association for the Properties of Water and Steam_) is an international non-profit association of national organizations concerned with the properties of water and steam, particularly thermophysical properties, cycle chemistry guidelines, and other aspects of high-temperature steam, water and aqueous mixtures relevant to thermal power cycles and other industrial and scientific applications.
+
+## Intended Usage
+This formulation ([IAPWS-IF97]) is recommended for industrial use (primarily the steam power industry) for the calculation of thermodynamic properties of ordinary water in its fluid phases, including vapor-liquid equilibrium.
+The formulation is a close approximation to the [IAPWS-IF95] formulation for general and scientific use, but is designed for much greater computational speed. 
+
+
+## Range of Validity
+The range of validity is divided into several regions (with close tolerances for consistency at region boundaries), each of which is represented by a different fundamental equation. 
+Appropriate combinations of derivatives from this equation can produce any thermodynamic property desired (density or specific volume, sound speed, heat capacity, enthalpy, entropy, etc.).
+The formulation is valid from 273.15 K to 1073.15 K at pressures to 100 MPa, and there is a high-temperature region extending to 2273.15 K at pressures to 50 MPa. 
+There is also a separate equation for metastable steam at pressures up to 10 MPa.
+
+[IAPWS]: https://iapws.org/
+[IAPWS-IF97]: http://www.iapws.org/relguide/IF97-Rev.html
+[IAPWS-IF95]: http://www.iapws.org/relguide/IAPWS-95.html
