@@ -1,0 +1,46 @@
+---
+id: system-thermo-if97-compressibility
+title: if97
+sidebar_label: if97
+---
+
+
+Because expression functions do not support operator overloading (and adding functions to cover all possibilities of parameters is impractical), this module provides a single expression function for accessing all if97 properties.
+
+## Syntax
+
+```python
+if97(property, [[parameter], [value]...])
+```
+
+:::info
+This function must be called with named parameters.
+:::
+
+### Parameters
+
+<APITable>
+
+| Type | Parameter | Description |
+| --- | --- | --- |
+| _String_ | property | `if97` Property Name
+| _String_ | parameter | Parameter Key
+| _Double_ | value | Parameter Value
+
+</APITable>
+
+
+### Returns
+__Double__ - The result of the calculated the property.
+
+### Scope
+Gateway, Designer, Client, Perspective Session
+
+
+## Examples
+
+```python
+if97("specificEntropy", "p", 200000, "t", 400)
+if97("saturationPressure", "t", 500)
+if97("vaporFraction", "p", 110000, "t", 1150000)
+```
