@@ -55,7 +55,7 @@ const config = {
         id: "openapi",
         docsPluginId: "classic",
         config: {
-          cdn: { // "petstore" is considered the <id> that you will reference in the CLI
+          cdn: { 
             specPath: "https://cdn.mussonindustrial.com/openapi.json", // path or URL to the OpenAPI spec
             outputDir: "api/docs/cdn", // output directory for generated *.mdx and sidebar.js files
             sidebarOptions: {
@@ -113,7 +113,7 @@ const config = {
             items: [
               {
                 label: 'CDN',
-                to: 'docs/category/musson-industrial-cdn-api'
+                to: 'docs/musson-industrial-cdn-api'
               }
             ]
           },

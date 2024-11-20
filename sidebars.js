@@ -23,8 +23,8 @@ const sidebars = {
         type: "generated-index",
         title: "CDN API",
         description:
-          "This is a sample server Petstore server. You can find out more about Swagger at http://swagger.io or on irc.freenode.net, #swagger. For this sample, you can use the api key special-key to test the authorization filters.",
-        slug: "/category/musson-industrial-cdn-api",
+          "API Access to Musson Industrial's CDN.",
+        slug: "/musson-industrial-cdn-api",
       },
       items: require("./docs/api/cdn/sidebar.js"),
     },
@@ -37,86 +37,6 @@ const sidebars = {
     }
   ],
 
-  // ignitionModules: [
-  //   {
-  //     type: 'category',
-  //     label: 'Ignition Modules',
-  //     link: {
-  //       // type: 'generated-index'
-  //       type: 'doc',
-  //       id: 'ignition-modules/index'
-  //     },
-  //     items: [
-  //       {
-  //         type: 'category',
-  //         label: 'BarTender Drivers (prerelease)',
-  //         link: {
-  //           type: 'doc',
-  //           id: 'ignition-modules/bartender/index'
-  //         },
-  //         items: [
-  //           'ignition-modules/bartender/installation',
-  //           {
-  //             type: 'category',
-  //             label: 'Creating and Configuring Connections',
-  //             link: {
-  //               type: 'doc',
-  //               id: 'ignition-modules/bartender/connections/index'
-  //             },
-  //             items: [
-  //               'ignition-modules/bartender/connections/web-service',
-  //               'ignition-modules/bartender/connections/tcp-socket'             
-  //             ]
-  //           },
-  //           {
-  //             type: 'category',
-  //             label: 'Sending Print Commands',
-  //             link: {
-  //               type: 'doc',
-  //               id: 'ignition-modules/bartender/printing/index'
-  //             },
-  //             items: [
-  //               'ignition-modules/bartender/printing/btxml',
-  //               // 'ignition-modules/bartender/scripting/runBlocking'             
-  //             ]
-  //           },
-  //           // {
-  //           //   type: 'category',
-  //           //   label: 'Working with BTXML',
-  //           //   link: {
-  //           //     type: 'doc',
-  //           //     id: 'ignition-modules/bartender/btxml/root'
-  //           //   },
-  //           //   items: [
-  //           //     // 'ignition-modules/bartender/scripting/runAsync',
-  //           //     // 'ignition-modules/bartender/scripting/runBlocking'             
-  //           //   ]
-  //           // },
-  //           {
-  //             type: 'doc',
-  //             id: 'ignition-modules/bartender/jsonSchema'
-  //           },
-  //           {
-  //             type: 'category',
-  //             label: 'Scripting',
-  //             link: {
-  //               type: 'doc',
-  //               id: 'ignition-modules/bartender/scripting/index'
-  //             },
-  //             items: [
-  //               'ignition-modules/bartender/scripting/runAsync',
-  //               'ignition-modules/bartender/scripting/runBlocking',
-  //               'ignition-modules/bartender/scripting/fromDict',
-  //               'ignition-modules/bartender/scripting/fromJSON',
-  //               'ignition-modules/bartender/scripting/fromXML',         
-  //               'ignition-modules/bartender/scripting/newScript',    
-  //             ]
-  //           }
-  //         ],
-  //       }
-  //     ],
-  //   }
-  // ]
 };
 
 module.exports = sidebars;
