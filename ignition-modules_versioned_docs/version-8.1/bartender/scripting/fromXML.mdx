@@ -1,0 +1,95 @@
+---
+sidebar_position: 1
+---
+
+import APITable from '@site/src/components/APITable';
+
+# btxml.fromXML
+
+Parse a BTXML script from an XML string.
+
+## Syntax
+
+```python
+system.bartender.btxml.fromJSON(json)
+```
+
+### Parameters
+
+```mdx-code-block
+<APITable>
+```
+
+| Type | Parameter | Description |
+| --- | --- | --- |
+| _String_ | xml | an XML string of script parameters
+```mdx-code-block
+</APITable>
+```
+
+### Returns
+_BTXMLScript_ - Parsed result.
+
+### Scope
+Gateway, Designer, Client, Perspective Session
+
+
+## Example
+
+### Parse a BTXML script from an XML string.
+```python
+config = """
+<XMLScript Version="2.0">
+    <Command Name="">
+        <Print JobName="Print Item Label">
+            <Format>C:/Path/To/File.btw</Format>
+            <NamedSubString Name="name">
+                <Value>Item Name</Value>
+            </NamedSubString>
+            <NamedSubString Name="quantity">
+                <Value>500</Value>
+            </NamedSubString>
+            <PrintSetup>
+                <Printer>MyLabelPrinter</Printer>
+            </PrintSetup>
+        </Print>
+    </Command>
+</XMLScript>
+"""
+script = system.bartender.btxml.fromXML(config)
+print script.toString()
+
+```
+
+```xml title="Result"
+{
+    "version": "2.0",
+    "commands": [
+        {
+            "actions": [
+                {
+                    "type": "Print",
+                    "jobName": "Print Item Label",
+                    "format": {
+                        "documentPath": "C:/Path/To/File.btw"
+                    },
+                    "namedSubStrings": [
+                        {
+                            "name": "name",
+                            "value": "Item Name"
+                        },
+                        {
+                            "name": "quantity",
+                            "value": "500"
+                        }
+                    ],
+                    "printSetup": {
+                        "printer": "MyLabelPrinter"
+                    }
+                }
+            ]
+        }
+    ]
+}
+
+```

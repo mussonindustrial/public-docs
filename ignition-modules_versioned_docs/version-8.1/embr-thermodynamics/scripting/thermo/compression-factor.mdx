@@ -1,0 +1,51 @@
+---
+id: system-thermo-if97-compressionFactor
+title: system.thermo.if97.compressionFactor
+sidebar_label: compressionFactor
+---
+
+Calculates compression factor (real-gas factor).
+
+## Syntax
+
+```python
+system.thermo.if97.compressionFactor(p, t) # Pressure and Temperature
+```
+
+:::info
+This function must be called with named parameters.
+:::
+
+### Parameters
+
+<APITable>
+
+| Type   | Parameter | Description               |
+| ------ | --------- | ------------------------- |
+| _Double_ | p         | Absolute Pressure (Pa)    |
+| _Double_ | t         | Temperature (K)          |
+
+</APITable>
+
+
+### Returns
+__Double__ - Compression Factor (real-gas factor)
+
+Quantifies the deviation of a real gas from ideal gas behavior under specific conditions.
+
+### Scope
+Gateway, Designer, Client, Perspective Session
+
+## Example
+
+### Pressure and Temperature
+```python
+p = 800000
+t = 475
+result = system.thermo.if97.compressionFactor(p=p, t=t) # Call with pressure and temperature
+print result
+```
+
+```python title="Result"
+0.956476200171
+```

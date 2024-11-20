@@ -1,0 +1,50 @@
+---
+id: system-thermo-if97-specificGibbsFreeEnergy
+title: system.thermo.if97.specificGibbsFreeEnergy
+sidebar_label: specificGibbsFreeEnergy
+---
+
+Calculates specific Gibbs free energy.
+
+## Syntax
+
+```python
+system.thermo.if97.specificGibbsFreeEnergy(p, t) # Pressure and Temperature
+```
+
+:::info
+This function must be called with named parameters.
+:::
+
+### Parameters
+
+<APITable>
+
+| Type     | Parameter | Description                     |
+| -------- | --------- | ------------------------------- |
+| _Double_ | p         | Absolute Pressure (Pa)          |
+| _Double_ | t         | Temperature (K)                |
+
+</APITable>
+
+### Returns
+__Double__ - Specific Gibbs Free Energy (J/kg)
+
+The maximum reversible work that can be obtained from a system at constant temperature and pressure.
+
+### Scope
+Gateway, Designer, Client, Perspective Session
+
+## Example
+
+### Pressure
+```python
+p = 101325
+t=373.15
+result = system.thermo.if97.specificGibbsFreeEnergy(p=p, t=t)
+print result
+```
+
+```python title="Result"
+-68757.3409468
+```

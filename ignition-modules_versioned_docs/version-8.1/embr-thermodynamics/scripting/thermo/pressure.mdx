@@ -1,0 +1,50 @@
+---
+id: system-thermo-if97-pressure
+title: system.thermo.if97.pressure
+sidebar_label: pressure
+---
+
+Calculates pressure.
+
+## Syntax
+
+```python
+system.thermo.if97.pressure(h, s) # Enthalpy and Entropy
+```
+
+:::info
+This function must be called with named parameters.
+:::
+
+### Parameters
+
+<APITable>
+
+| Type     | Parameter | Description                     |
+| -------- | --------- | ------------------------------- |
+| _Double_ | h         | Specific Enthalpy (J/kg)        |
+| _Double_ | s         | Specific Entropy (J/(kg·K))     |
+
+</APITable>
+
+### Returns
+__Double__ - Pressure (Pa)
+
+The pressure at the specified conditions.
+
+### Scope
+Gateway, Designer, Client, Perspective Session
+
+## Example
+
+### Enthalpy and Entropy
+```python
+h = 3000
+s = 7.5
+result = system.thermo.if97.pressure(h=h, s=s)
+print result
+```
+
+```python title="Result"
+950095.755455
+```

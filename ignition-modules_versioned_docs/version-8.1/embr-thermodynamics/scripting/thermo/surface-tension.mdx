@@ -1,0 +1,50 @@
+---
+id: system-thermo-if97-surfaceTension
+title: system.thermo.if97.surfaceTension
+sidebar_label: surfaceTension
+---
+
+Calculates surface tension.
+
+## Syntax
+
+```python
+system.thermo.if97.surfaceTension(p) # Pressure
+system.thermo.if97.surfaceTension(t) # Temperature
+```
+
+:::info
+This function must be called with named parameters.
+:::
+
+### Parameters
+
+<APITable>
+
+| Type     | Parameter | Description                     |
+| -------- | --------- | ------------------------------- |
+| _Double_ | p         | Absolute Pressure (Pa)          |
+| _Double_ | t         | Temperature (K)                |
+
+</APITable>
+
+### Returns
+__Double__ - Surface Tension (N/m)
+
+The force per unit length acting along the surface of the liquid.
+
+### Scope
+Gateway, Designer, Client, Perspective Session
+
+## Example
+
+### Temperature
+```python
+t = 373.15
+result = system.thermo.if97.surfaceTension(t=t)
+print result
+```
+
+```python title="Result"
+0.0589118685877
+```

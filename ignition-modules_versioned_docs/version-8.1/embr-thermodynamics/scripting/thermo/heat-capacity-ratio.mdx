@@ -1,0 +1,56 @@
+---
+id: system-thermo-if97-heatCapacityRatio
+title: system.thermo.if97.heatCapacityRatio
+sidebar_label: heatCapacityRatio
+---
+
+Calculates heat capacity ratio (Cp/Cv). 
+
+## Syntax
+
+```python
+system.thermo.if97.heatCapacityRatio(h, s) # Enthalpy and Entropy
+system.thermo.if97.heatCapacityRatio(p, h) # Pressure and Enthalpy
+system.thermo.if97.heatCapacityRatio(p, s) # Pressure and Entropy
+system.thermo.if97.heatCapacityRatio(p, t) # Pressure and Temperature
+```
+
+:::info
+This function must be called with named parameters.
+:::
+
+### Parameters
+
+<APITable>
+
+| Type     | Parameter | Description                     |
+| -------- | --------- | ------------------------------- |
+| _Double_ | h         | Specific Enthalpy (J/kg)        |
+| _Double_ | p         | Absolute Pressure (Pa)          |
+| _Double_ | s         | Specific Entropy (J/(kg·K))     |
+| _Double_ | t         | Temperature (K)                |
+
+</APITable>
+
+### Returns
+__Double__ - Heat Capacity Ratio (Cp/Cv)
+
+Aso known as the adiabatic index, the ratio of specific heat, or Laplace's coefficient.
+
+
+### Scope
+Gateway, Designer, Client, Perspective Session
+
+## Example
+
+### Pressure and Temperature
+```python
+p = 200000
+t = 300
+result = system.thermo.if97.heatCapacityRatio(p=p, t=t)
+print result
+```
+
+```python title="Result"
+1.01221675637
+```

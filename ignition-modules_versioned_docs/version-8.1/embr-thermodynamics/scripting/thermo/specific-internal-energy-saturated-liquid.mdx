@@ -1,0 +1,50 @@
+---
+id: system-thermo-if97-specificInternalEnergySaturatedLiquid
+title: system.thermo.if97.specificInternalEnergySaturatedLiquid
+sidebar_label: specificInternalEnergySaturatedLiquid
+---
+
+Calculates the specific internal energy for saturated liquid.
+
+## Syntax
+
+```python
+system.thermo.if97.specificInternalEnergySaturatedLiquid(p) # Pressure
+system.thermo.if97.specificInternalEnergySaturatedLiquid(t) # Temperature
+```
+
+:::info
+This function must be called with named parameters.
+:::
+
+### Parameters
+
+<APITable>
+
+| Type     | Parameter | Description                     |
+| -------- | --------- | ------------------------------- |
+| _Double_ | p         | Absolute Pressure (Pa)          |
+| _Double_ | t         | Temperature (K)                |
+
+</APITable>
+
+### Returns
+__Double__ - Specific Internal Energy for Saturated Liquid (J/kg)
+
+The internal energy of a liquid in equilibrium at the given pressure or temperature.
+
+### Scope
+Gateway, Designer, Client, Perspective Session
+
+## Example
+
+### Pressure
+```python
+p = 101325
+result = system.thermo.if97.specificInternalEnergySaturatedLiquid(p=p)
+print result
+```
+
+```python title="Result"
+418884.991716
+```

@@ -1,0 +1,55 @@
+---
+id: system-thermo-if97-speedOfSound
+title: system.thermo.if97.speedOfSound
+sidebar_label: speedOfSound
+---
+
+Calculates the speed of sound.
+
+## Syntax
+
+```python
+system.thermo.if97.speedOfSound(h, s) # Enthalpy and Entropy
+system.thermo.if97.speedOfSound(p, h) # Pressure and Enthalpy
+system.thermo.if97.speedOfSound(p, s) # Pressure and Entropy
+system.thermo.if97.speedOfSound(p, t) # Pressure and Temperature
+```
+
+:::info
+This function must be called with named parameters.
+:::
+
+### Parameters
+
+<APITable>
+
+| Type     | Parameter | Description                     |
+| -------- | --------- | ------------------------------- |
+| _Double_ | h         | Specific Enthalpy (J/kg)        |
+| _Double_ | s         | Specific Entropy (J/(kg·K))     |
+| _Double_ | p         | Absolute Pressure (Pa)          |
+| _Double_ | t         | Temperature (K)                |
+
+</APITable>
+
+### Returns
+__Double__ - Speed of Sound (m/s)
+
+The speed at which sound propagates through the substance under given conditions.
+
+### Scope
+Gateway, Designer, Client, Perspective Session
+
+## Example
+
+### Pressure and Temperature
+```python
+p = 101325
+t = 373.15
+result = system.thermo.if97.speedOfSound(p=p, t=t)
+print result
+```
+
+```python title="Result"
+472.261315089
+```

@@ -1,0 +1,50 @@
+---
+id: system-thermo-if97-specificEnthalpySaturatedLiquid
+title: system.thermo.if97.specificEnthalpySaturatedLiquid
+sidebar_label: specificEnthalpySaturatedLiquid
+---
+
+Calculates the specific enthalpy for saturated liquid.
+
+## Syntax
+
+```python
+system.thermo.if97.specificEnthalpySaturatedLiquid(p) # Pressure
+system.thermo.if97.specificEnthalpySaturatedLiquid(t) # Temperature
+```
+
+:::info
+This function must be called with named parameters.
+:::
+
+### Parameters
+
+<APITable>
+
+| Type     | Parameter | Description                     |
+| -------- | --------- | ------------------------------- |
+| _Double_ | p         | Absolute Pressure (Pa)          |
+| _Double_ | t         | Temperature (K)                |
+
+</APITable>
+
+### Returns
+__Double__ - Specific Enthalpy for Saturated Liquid (J/kg)
+
+The specific enthalpy of a liquid in equilibrium at the given pressure or temperature.
+
+### Scope
+Gateway, Designer, Client, Perspective Session
+
+## Example
+
+### Temperature
+```python
+t = 373.15
+result = system.thermo.if97.specificEnthalpySaturatedLiquid(t=t)
+print result
+```
+
+```python title="Result"
+419099.154998
+```

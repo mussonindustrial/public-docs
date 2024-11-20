@@ -1,0 +1,55 @@
+---
+id: system-thermo-if97-isobaricHeatCapacity
+title: system.thermo.if97.isobaricHeatCapacity
+sidebar_label: isobaricHeatCapacity
+---
+
+Calculates specific isobaric heat capacity.
+
+## Syntax
+
+```python
+system.thermo.if97.isobaricHeatCapacity(h, s) # Enthalpy and Entropy
+system.thermo.if97.isobaricHeatCapacity(p, h) # Pressure and Enthalpy
+system.thermo.if97.isobaricHeatCapacity(p, s) # Pressure and Entropy
+system.thermo.if97.isobaricHeatCapacity(p, t) # Pressure and Temperature
+```
+
+:::info
+This function must be called with named parameters.
+:::
+
+### Parameters
+
+<APITable>
+
+| Type     | Parameter | Description                     |
+| -------- | --------- | ------------------------------- |
+| _Double_ | h         | Specific Enthalpy (J/kg)        |
+| _Double_ | p         | Absolute Pressure (Pa)          |
+| _Double_ | s         | Specific Entropy (J/(kg·K))     |
+| _Double_ | t         | Temperature (K)                |
+
+</APITable>
+
+### Returns
+__Double__ - Specific Isobaric Heat Capacity (J/(kg·K))
+
+The amount of heat required to raise the temperature of a unit mass of a substance by one degree at constant pressure.
+
+### Scope
+Gateway, Designer, Client, Perspective Session
+
+## Example
+
+### Pressure and Temperature
+```python
+p = 101325
+t = 373.15
+result = system.thermo.if97.isobaricHeatCapacity(p=p, t=t)
+print result
+```
+
+```python title="Result"
+2077.2686738
+```

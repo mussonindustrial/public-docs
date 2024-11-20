@@ -1,0 +1,95 @@
+---
+sidebar_position: 1
+---
+
+import APITable from '@site/src/components/APITable';
+
+# btxml.newScript
+
+Creates a new BTXMLScript object. Can contain multiple script commands.
+
+## Syntax
+
+```python
+system.bartender.btxml.newScript(version, id, name, commands)
+```
+
+### Parameters
+
+```mdx-code-block
+<APITable>
+```
+
+| Type | Parameter | Description |
+| --- | --- | --- |
+| _String_ | version | XML script version. Default "2.0"
+| _String_ | id | unique identification number to identify the XML script request
+| _String_ | name | name to identify the XML script request
+| _List&lt;Command>_ | commands | a list of commands to run
+```mdx-code-block
+</APITable>
+```
+
+### Returns
+_BTXMLScript_ - Parsed result.
+
+### Scope
+Gateway, Designer, Client, Perspective Session
+
+
+## Example
+
+### Parse a BTXML script from a JSON string.
+```python
+config = """{
+	"version": "2.0",
+	"commands": [
+		{
+			"type": "Print",
+			"actions": [{
+				"type": "Print",
+				"jobName": "Print Item Label",
+				"format": {
+					"documentPath": "C:/Path/To/File.btw"
+				},
+				"printSetup": {
+					"printer": "MyLabelPrinter"
+				},
+				"namedSubStrings": [
+					{
+						"name": "name", 
+						"value": "Item Name"
+					},
+					{
+						"name": "quantity", 
+						"value": "500"
+					}
+				]
+			}]
+		}
+	]
+}"""
+script = system.bartender.btxml.fromJSON(config)
+print script.toBTXML()
+
+```
+
+```xml title="Result"
+<XMLScript Version="2.0">
+    <Command Name="">
+        <Print JobName="Print Item Label">
+            <Format>C:/Path/To/File.btw</Format>
+            <NamedSubString Name="name">
+                <Value>Item Name</Value>
+            </NamedSubString>
+            <NamedSubString Name="quantity">
+                <Value>500</Value>
+            </NamedSubString>
+            <PrintSetup>
+                <Printer>MyLabelPrinter</Printer>
+            </PrintSetup>
+        </Print>
+    </Command>
+</XMLScript>
+
+```

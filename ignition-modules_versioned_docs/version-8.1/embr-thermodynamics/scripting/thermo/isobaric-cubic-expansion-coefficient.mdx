@@ -1,0 +1,58 @@
+---
+id: system-thermo-if97-isobaricCubicExpansionCoefficient
+title: system.thermo.if97.isobaricCubicExpansionCoefficient
+sidebar_label: isobaricCubicExpansionCoefficient
+---
+
+Calculates isobaric cubic expansion coefficient.
+
+## Syntax
+
+```python
+system.thermo.if97.isobaricCubicExpansionCoefficient(h, s) # Enthalpy and Entropy
+system.thermo.if97.isobaricCubicExpansionCoefficient(p, h) # Pressure and Enthalpy
+system.thermo.if97.isobaricCubicExpansionCoefficient(p, s) # Pressure and Entropy
+system.thermo.if97.isobaricCubicExpansionCoefficient(p, t) # Pressure and Temperature
+system.thermo.if97.isobaricCubicExpansionCoefficient(p, x) # Pressure and Quality
+system.thermo.if97.isobaricCubicExpansionCoefficient(t, x) # Temperature and Quality
+```
+
+:::info
+This function must be called with named parameters.
+:::
+
+### Parameters
+
+<APITable>
+
+| Type     | Parameter | Description                     |
+| -------- | --------- | ------------------------------- |
+| _Double_ | h         | Specific Enthalpy (J/kg)        |
+| _Double_ | p         | Absolute Pressure (Pa)          |
+| _Double_ | s         | Specific Entropy (J/(kg·K))     |
+| _Double_ | t         | Temperature (K)                |
+| _Double_ | x         | Quality (mass fraction of vapor) |
+
+</APITable>
+
+### Returns
+__Double__ - Isobaric Cubic Expansion Coefficient (1/K)
+
+Quantifies the relative change in volume of a substance with temperature at constant pressure. 
+
+### Scope
+Gateway, Designer, Client, Perspective Session
+
+## Example
+
+### Pressure and Temperature
+```python
+p = 250000
+t = 350
+result = system.thermo.if97.isobaricCubicExpansionCoefficient(p=p, t=t)
+print result
+```
+
+```python title="Result"
+0.000623653739722
+```

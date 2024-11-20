@@ -1,0 +1,53 @@
+---
+id: system-thermo-if97-temperature
+title: system.thermo.if97.temperature
+sidebar_label: temperature
+---
+
+Calculates temperature.
+
+## Syntax
+
+```python
+system.thermo.if97.temperature(h, s) # Enthalpy and Entropy
+system.thermo.if97.temperature(p, h) # Pressure and Enthalpy
+system.thermo.if97.temperature(p, s) # Pressure and Entropy
+```
+
+:::info
+This function must be called with named parameters.
+:::
+
+### Parameters
+
+<APITable>
+
+| Type     | Parameter | Description                     |
+| -------- | --------- | ------------------------------- |
+| _Double_ | h         | Specific Enthalpy (J/kg)        |
+| _Double_ | s         | Specific Entropy (J/(kg·K))     |
+| _Double_ | p         | Absolute Pressure (Pa)          |
+
+</APITable>
+
+### Returns
+__Double__ - Temperature (K)
+
+The temperature under the specified thermodynamic conditions.
+
+### Scope
+Gateway, Designer, Client, Perspective Session
+
+## Example
+
+### Pressure and Enthalpy
+```python
+p = 101325
+h = 200000
+result = system.thermo.if97.temperature(p=p, h=h)
+print result
+```
+
+```python title="Result"
+320.90888773
+```

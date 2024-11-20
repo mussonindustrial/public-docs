@@ -1,0 +1,51 @@
+---
+id: system-thermo-if97-saturationPressure
+title: system.thermo.if97.saturationPressure
+sidebar_label: saturationPressure
+---
+
+Calculates saturation pressure.
+
+## Syntax
+
+```python
+system.thermo.if97.saturationPressure(t) # Temperature
+system.thermo.if97.saturationPressure(h, s) # Enthalpy and Entropy
+```
+
+:::info
+This function must be called with named parameters.
+:::
+
+### Parameters
+
+<APITable>
+
+| Type     | Parameter | Description                     |
+| -------- | --------- | ------------------------------- |
+| _Double_ | t         | Temperature (K)                |
+| _Double_ | h         | Specific Enthalpy (J/kg)        |
+| _Double_ | s         | Specific Entropy (J/(kg·K))     |
+
+</APITable>
+
+### Returns
+__Double__ - Saturation Pressure (Pa)
+
+The pressure at which a substance transitions between liquid and vapor phases at the given temperature or conditions.
+
+### Scope
+Gateway, Designer, Client, Perspective Session
+
+## Example
+
+### Temperature
+```python
+t = 373.15
+result = system.thermo.if97.saturationPressure(t=t)
+print result
+```
+
+```python title="Result"
+101417.977921
+```

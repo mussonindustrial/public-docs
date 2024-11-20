@@ -1,0 +1,55 @@
+---
+id: system-thermo-if97-prandtl
+title: system.thermo.if97.prandtl
+sidebar_label: prandtl
+---
+
+Calculates Prandtl number.
+
+## Syntax
+
+```python
+system.thermo.if97.prandtl(h, s) # Enthalpy and Entropy
+system.thermo.if97.prandtl(p, h) # Pressure and Enthalpy
+system.thermo.if97.prandtl(p, s) # Pressure and Entropy
+system.thermo.if97.prandtl(p, t) # Pressure and Temperature
+```
+
+:::info
+This function must be called with named parameters.
+:::
+
+### Parameters
+
+<APITable>
+
+| Type     | Parameter | Description                     |
+| -------- | --------- | ------------------------------- |
+| _Double_ | h         | Specific Enthalpy (J/kg)        |
+| _Double_ | p         | Absolute Pressure (Pa)          |
+| _Double_ | s         | Specific Entropy (J/(kg·K))     |
+| _Double_ | t         | Temperature (K)                |
+
+</APITable>
+
+### Returns
+__Double__ - Prandtl Number
+
+The ratio of momentum diffusivity to thermal diffusivity.
+
+### Scope
+Gateway, Designer, Client, Perspective Session
+
+## Example
+
+### Pressure and Temperature
+```python
+p = 101325
+t = 373.15
+result = system.thermo.if97.prandtl(p=p, t=t)
+print result
+```
+
+```python title="Result"
+1.02487092858
+```

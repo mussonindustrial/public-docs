@@ -1,0 +1,55 @@
+---
+id: system-thermo-if97-vaporFraction
+title: system.thermo.if97.vaporFraction
+sidebar_label: vaporFraction
+---
+
+Calculates vapor fraction.
+
+## Syntax
+
+```python
+system.thermo.if97.vaporFraction(h, s) # Enthalpy and Entropy
+system.thermo.if97.vaporFraction(p, h) # Pressure and Enthalpy
+system.thermo.if97.vaporFraction(p, s) # Pressure and Entropy
+system.thermo.if97.vaporFraction(t, s) # Temperature and Entropy
+```
+
+:::info
+This function must be called with named parameters.
+:::
+
+### Parameters
+
+<APITable>
+
+| Type     | Parameter | Description                     |
+| -------- | --------- | ------------------------------- |
+| _Double_ | h         | Specific Enthalpy (J/kg)        |
+| _Double_ | s         | Specific Entropy (J/(kg·K))     |
+| _Double_ | p         | Absolute Pressure (Pa)          |
+| _Double_ | t         | Temperature (K)                |
+
+</APITable>
+
+### Returns
+__Double__ - Vapor Fraction (Quality) (0 to 1)
+
+The fraction of the substance in the vapor phase
+
+### Scope
+Gateway, Designer, Client, Perspective Session
+
+## Example
+
+### Enthalpy and Entropy
+```python
+h = 2000000
+s = 5000
+result = system.thermo.if97.vaporFraction(h=h, s=s)
+print result
+```
+
+```python title="Result"
+0.636101614663
+```

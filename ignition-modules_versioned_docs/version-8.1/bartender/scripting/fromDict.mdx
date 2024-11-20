@@ -1,0 +1,93 @@
+---
+sidebar_position: 1
+---
+
+import APITable from '@site/src/components/APITable';
+
+# btxml.fromDict
+
+Parse a BTXML script from a dictionary.
+The complete schema can be viewed [here](../jsonSchema).
+
+## Syntax
+
+```python
+system.bartender.btxml.fromDict(data)
+```
+
+### Parameters
+
+```mdx-code-block
+<APITable>
+```
+
+| Type | Parameter | Description |
+| --- | --- | --- |
+| _PyDictionary_ | data | a dictionary of script parameters
+```mdx-code-block
+</APITable>
+```
+
+### Returns
+_BTXMLScript_ - Parsed result.
+
+### Scope
+Gateway, Designer, Client, Perspective Session
+
+
+## Example
+
+### Parse a BTXML script from a python dictionary.
+```python title="Script"
+config = {
+	'version': '2.0',
+	'commands': [
+		{
+			'type': 'Print',
+			'actions': [{
+				'type': 'Print',
+				'jobName': 'Print Item Label',
+				'format': {
+					'documentPath': 'C:/Path/To/File.btw'
+				},
+				'printSetup': {
+					'printer': 'MyLabelPrinter'
+				},
+				'namedSubStrings': [
+					{
+						'name': 'name', 
+						'value': 'Item Name'
+					},
+					{
+						'name': 'quantity', 
+						'value': '500'
+					}
+				]
+			}]
+		}
+	]
+}
+script = system.bartender.btxml.fromDict(config)
+print script.toBTXML()
+
+```
+
+```xml title="Result"
+<XMLScript Version="2.0">
+    <Command Name="">
+        <Print JobName="Print Item Label">
+            <Format>C:/Path/To/File.btw</Format>
+            <NamedSubString Name="name">
+                <Value>Item Name</Value>
+            </NamedSubString>
+            <NamedSubString Name="quantity">
+                <Value>500</Value>
+            </NamedSubString>
+            <PrintSetup>
+                <Printer>MyLabelPrinter</Printer>
+            </PrintSetup>
+        </Print>
+    </Command>
+</XMLScript>
+
+```
