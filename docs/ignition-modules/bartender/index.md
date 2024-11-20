@@ -1,6 +1,6 @@
-# BarTender Drivers Module
+# BarTender Drivers
 
-**Musson Industrial's** BarTender Drivers Modules offers a quick and easy way to integrate the printing power of BarTender with the flexibility of the Ignition Platform. 
+**Musson Industrial's** BarTender Drivers Module offers a quick and easy way to integrate the printing power of BarTender with the flexibility of the Ignition Platform. 
 Manage BarTender connections, print labels, and run advanced integrations all as if they were native to Ignition.
 
 :::important

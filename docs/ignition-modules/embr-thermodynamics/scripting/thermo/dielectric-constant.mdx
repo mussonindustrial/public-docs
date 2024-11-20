@@ -1,0 +1,64 @@
+---
+id: system-thermo-if97-dielectricConstant
+title: system.thermo.if97.dielectricConstant
+sidebar_label: if97.dielectricConstant
+---
+
+import APITable from '@site/src/components/APITable';
+
+## Description
+
+Calculates dielectric constant.
+
+## Syntax
+
+```python
+system.thermo.if97.dielectricConstant(h, s) # Enthalpy and Entropy
+system.thermo.if97.dielectricConstant(p, h) # Pressure and Enthalpy
+system.thermo.if97.dielectricConstant(p, s) # Pressure and Entropy
+system.thermo.if97.dielectricConstant(p, t) # Pressure and Temperature
+system.thermo.if97.dielectricConstant(rho, t) # Density and Temperature
+```
+
+:::info
+This function must be called with named parameters.
+:::
+
+### Parameters
+
+```mdx-code-block
+<APITable>
+```
+
+| Type     | Parameter | Description                     |
+| -------- | --------- | ------------------------------- |
+| _Double_ | h         | Specific Enthalpy (J/kg)        |
+| _Double_ | p         | Absolute Pressure (Pa)          |
+| _Double_ | s         | Specific Entropy (J/(kg·K))     |
+| _Double_ | t         | Temperature (K)                |
+| _Double_ | rho       | Density (kg/m³)                |
+```mdx-code-block
+</APITable>
+```
+
+### Returns
+__Double__ - Dielectric Constant [-]
+
+A measure of a substance's ability to store electrical energy in an electric field. 
+
+### Scope
+Gateway, Designer, Client, Perspective Session
+
+## Example
+
+### Pressure and Temperature
+```python
+p = 101325
+t = 298.15
+result = system.thermo.if97.dielectricConstant(p=p, t=t)
+print result
+```
+
+```python title="Result"
+78.4085151171
+```

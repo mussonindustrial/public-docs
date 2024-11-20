@@ -1,0 +1,61 @@
+---
+id: system-thermo-if97-isentropicExponent
+title: system.thermo.if97.isentropicExponent
+sidebar_label: if97.isentropicExponent
+---
+
+import APITable from '@site/src/components/APITable';
+
+## Description
+
+Calculates isentropic exponent.
+
+## Syntax
+
+```python
+system.thermo.if97.isentropicExponent(h, s) # Enthalpy and Entropy
+system.thermo.if97.isentropicExponent(p, h) # Pressure and Enthalpy
+system.thermo.if97.isentropicExponent(p, s) # Pressure and Entropy
+system.thermo.if97.isentropicExponent(p, t) # Pressure and Temperature
+```
+
+:::info
+This function must be called with named parameters.
+:::
+### Parameters
+
+```mdx-code-block
+<APITable>
+```
+
+| Type     | Parameter | Description                     |
+| -------- | --------- | ------------------------------- |
+| _Double_ | h         | Specific Enthalpy (J/kg)        |
+| _Double_ | p         | Absolute Pressure (Pa)          |
+| _Double_ | s         | Specific Entropy (J/(kg·K))     |
+| _Double_ | t         | Temperature (K)                |
+```mdx-code-block
+</APITable>
+```
+
+### Returns
+__Double__ - Isentropic Exponent
+
+Describes the relationship between pressure and volume during an adiabatic process.
+
+### Scope
+Gateway, Designer, Client, Perspective Session
+
+## Example
+
+### Pressure and Temperature
+```python
+p = 800000
+t = 500
+result = system.thermo.if97.isentropicExponent(p=p, t=t)
+print result
+```
+
+```python title="Result"
+1.30236229789
+```

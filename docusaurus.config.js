@@ -89,8 +89,20 @@ const config = {
             position: 'left',
             items: [
               {
-                label: 'BarTender Drivers (Prerelease)',
+                label: 'BarTender Drivers',
                 to: 'docs/ignition-modules/bartender'
+              },
+              {
+                label: 'Embr-Charts',
+                to: 'docs/ignition-modules/embr-charts'
+              },
+              {
+                label: 'Embr-Periscope',
+                to: 'docs/ignition-modules/embr-periscope'
+              },
+              {
+                label: 'Embr-Thermodynamics',
+                to: 'docs/ignition-modules/embr-thermodynamics'
               }
             ]
           },
