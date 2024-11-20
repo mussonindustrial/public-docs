@@ -57,7 +57,7 @@ const config = {
         config: {
           cdn: { // "petstore" is considered the <id> that you will reference in the CLI
             specPath: "https://cdn.mussonindustrial.com/openapi.json", // path or URL to the OpenAPI spec
-            outputDir: "docs/api/cdn", // output directory for generated *.mdx and sidebar.js files
+            outputDir: "api/docs/cdn", // output directory for generated *.mdx and sidebar.js files
             sidebarOptions: {
               groupPathsBy: "tag", // generate a sidebar.js slice that groups operations by tag
             },

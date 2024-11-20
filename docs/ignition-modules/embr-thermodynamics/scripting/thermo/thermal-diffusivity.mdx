@@ -1,0 +1,55 @@
+---
+id: system-thermo-if97-thermalDiffusivity
+title: system.thermo.if97.thermalDiffusivity
+sidebar_label: thermalDiffusivity
+---
+
+Calculates thermal diffusivity.
+
+## Syntax
+
+```python
+system.thermo.if97.thermalDiffusivity(h, s) # Enthalpy and Entropy
+system.thermo.if97.thermalDiffusivity(p, h) # Pressure and Enthalpy
+system.thermo.if97.thermalDiffusivity(p, s) # Pressure and Entropy
+system.thermo.if97.thermalDiffusivity(p, t) # Pressure and Temperature
+```
+
+:::info
+This function must be called with named parameters.
+:::
+
+### Parameters
+
+<APITable>
+
+| Type     | Parameter | Description                     |
+| -------- | --------- | ------------------------------- |
+| _Double_ | h         | Specific Enthalpy (J/kg)        |
+| _Double_ | s         | Specific Entropy (J/(kg·K))     |
+| _Double_ | p         | Absolute Pressure (Pa)          |
+| _Double_ | t         | Temperature (K)                |
+
+</APITable>
+
+### Returns
+__Double__ - Thermal Diffusivity (m²/s)
+
+The rate of heat conduction relative to heat storage capacity.
+
+### Scope
+Gateway, Designer, Client, Perspective Session
+
+## Example
+
+### Pressure and Temperature
+```python
+p = 101325
+t = 373.15
+result = system.thermo.if97.thermalDiffusivity(p=p, t=t)
+print result
+```
+
+```python title="Result"
+0.0199734499938
+```

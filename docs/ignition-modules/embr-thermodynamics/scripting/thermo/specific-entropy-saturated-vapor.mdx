@@ -1,0 +1,50 @@
+---
+id: system-thermo-if97-specificEntropySaturatedVapor
+title: system.thermo.if97.specificEntropySaturatedVapor
+sidebar_label: specificEntropySaturatedVapor
+---
+
+Calculates the specific entropy for saturated vapor.
+
+## Syntax
+
+```python
+system.thermo.if97.specificEntropySaturatedVapor(p) # Pressure
+system.thermo.if97.specificEntropySaturatedVapor(t) # Temperature
+```
+
+:::info
+This function must be called with named parameters.
+:::
+
+### Parameters
+
+<APITable>
+
+| Type     | Parameter | Description                     |
+| -------- | --------- | ------------------------------- |
+| _Double_ | p         | Absolute Pressure (Pa)          |
+| _Double_ | t         | Temperature (K)                |
+
+</APITable>
+
+### Returns
+__Double__ - Specific Entropy for Saturated Vapor (J/(kg·K))
+
+The specific entropy of a vapor in equilibrium at the given pressure or temperature.
+
+### Scope
+Gateway, Designer, Client, Perspective Session
+
+## Example
+
+### Pressure
+```python
+p = 101325
+result = system.thermo.if97.specificEntropySaturatedVapor(p=p)
+print result
+```
+
+```python title="Result"
+7354.38511363
+```

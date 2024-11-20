@@ -1,0 +1,50 @@
+---
+id: system-thermo-if97-specificEntropySaturatedLiquid
+title: system.thermo.if97.specificEntropySaturatedLiquid
+sidebar_label: specificEntropySaturatedLiquid
+---
+
+Calculates the specific entropy for saturated liquid.
+
+## Syntax
+
+```python
+system.thermo.if97.specificEntropySaturatedLiquid(p) # Pressure
+system.thermo.if97.specificEntropySaturatedLiquid(t) # Temperature
+```
+
+:::info
+This function must be called with named parameters.
+:::
+
+### Parameters
+
+<APITable>
+
+| Type     | Parameter | Description                     |
+| -------- | --------- | ------------------------------- |
+| _Double_ | p         | Absolute Pressure (Pa)          |
+| _Double_ | t         | Temperature (K)                |
+
+</APITable>
+
+### Returns
+__Double__ - Specific Entropy for Saturated Liquid (J/(kg·K))
+
+The specific entropy of a liquid in equilibrium at the given pressure or temperature.
+
+### Scope
+Gateway, Designer, Client, Perspective Session
+
+## Example
+
+### Temperature
+```python
+t = 373.15
+result = system.thermo.if97.specificEntropySaturatedLiquid(t=t)
+print result
+```
+
+```python title="Result"
+1307.01432784
+```

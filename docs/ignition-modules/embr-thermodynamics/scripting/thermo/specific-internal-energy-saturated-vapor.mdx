@@ -1,0 +1,50 @@
+---
+id: system-thermo-if97-specificInternalEnergySaturatedVapor
+title: system.thermo.if97.specificInternalEnergySaturatedVapor
+sidebar_label: specificInternalEnergySaturatedVapor
+---
+
+Calculates the specific internal energy for saturated vapor.
+
+## Syntax
+
+```python
+system.thermo.if97.specificInternalEnergySaturatedVapor(p) # Pressure
+system.thermo.if97.specificInternalEnergySaturatedVapor(t) # Temperature
+```
+
+:::info
+This function must be called with named parameters.
+:::
+
+### Parameters
+
+<APITable>
+
+| Type     | Parameter | Description                     |
+| -------- | --------- | ------------------------------- |
+| _Double_ | p         | Absolute Pressure (Pa)          |
+| _Double_ | t         | Temperature (K)                |
+
+</APITable>
+
+### Returns
+__Double__ - Specific Internal Energy for Saturated Vapor (J/kg)
+
+The internal energy of a vapor in equilibrium at the given pressure or temperature.
+
+### Scope
+Gateway, Designer, Client, Perspective Session
+
+## Example
+
+### Temperature
+```python
+t = 373.15
+result = system.thermo.if97.specificInternalEnergySaturatedVapor(t=t)
+print result
+```
+
+```python title="Result"
+2506015.30769
+```

@@ -1,0 +1,50 @@
+---
+id: system-thermo-if97-specificEnthalpySaturatedVapor
+title: system.thermo.if97.specificEnthalpySaturatedVapor
+sidebar_label: specificEnthalpySaturatedVapor
+---
+
+Calculates the specific enthalpy for saturated vapor.
+
+## Syntax
+
+```python
+system.thermo.if97.specificEnthalpySaturatedVapor(p) # Pressure
+system.thermo.if97.specificEnthalpySaturatedVapor(t) # Temperature
+```
+
+:::info
+This function must be called with named parameters.
+:::
+
+### Parameters
+
+<APITable>
+
+| Type     | Parameter | Description                     |
+| -------- | --------- | ------------------------------- |
+| _Double_ | p         | Absolute Pressure (Pa)          |
+| _Double_ | t         | Temperature (K)                |
+
+</APITable>
+
+### Returns
+__Double__ - Specific Enthalpy for Saturated Vapor (J/kg)
+
+The specific enthalpy of a vapor in equilibrium at the given pressure or temperature.
+
+### Scope
+Gateway, Designer, Client, Perspective Session
+
+## Example
+
+### Pressure
+```python
+p = 101325
+result = system.thermo.if97.specificEnthalpySaturatedVapor(p=p)
+print result
+```
+
+```python title="Result"
+2675531.46604
+```

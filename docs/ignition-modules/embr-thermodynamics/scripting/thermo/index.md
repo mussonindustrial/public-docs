@@ -1,3 +1,3 @@
-# system.thermo
+# system.thermo.if97
 
 <DocCardList />

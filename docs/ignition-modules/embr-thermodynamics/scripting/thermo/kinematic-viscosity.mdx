@@ -1,19 +1,19 @@
 ---
-id: system-thermo-if97-dielectricConstant
-title: system.thermo.if97.dielectricConstant
-sidebar_label: dielectricConstant
+id: system-thermo-if97-kinematicViscosity
+title: system.thermo.if97.kinematicViscosity
+sidebar_label: kinematicViscosity
 ---
 
-Calculates dielectric constant.
+Calculates kinematic viscosity.
 
 ## Syntax
 
 ```python
-system.thermo.if97.dielectricConstant(h, s) # Enthalpy and Entropy
-system.thermo.if97.dielectricConstant(p, h) # Pressure and Enthalpy
-system.thermo.if97.dielectricConstant(p, s) # Pressure and Entropy
-system.thermo.if97.dielectricConstant(p, t) # Pressure and Temperature
-system.thermo.if97.dielectricConstant(rho, t) # Density and Temperature
+system.thermo.if97.kinematicViscosity(h, s) # Enthalpy and Entropy
+system.thermo.if97.kinematicViscosity(p, h) # Pressure and Enthalpy
+system.thermo.if97.kinematicViscosity(p, s) # Pressure and Entropy
+system.thermo.if97.kinematicViscosity(p, t) # Pressure and Temperature
+system.thermo.if97.kinematicViscosity(rho, t) # Density and Temperature
 ```
 
 :::info
@@ -35,9 +35,9 @@ This function must be called with named parameters.
 </APITable>
 
 ### Returns
-__Double__ - Dielectric Constant [-]
+__Double__ - Kinematic Viscosity (m²/s)
 
-A measure of a substance's ability to store electrical energy in an electric field. 
+The ratio of dynamic viscosity to density.
 
 ### Scope
 Gateway, Designer, Client, Perspective Session
@@ -47,11 +47,11 @@ Gateway, Designer, Client, Perspective Session
 ### Pressure and Temperature
 ```python
 p = 101325
-t = 298.15
-result = system.thermo.if97.dielectricConstant(p=p, t=t)
+t = 373.15
+result = system.thermo.if97.kinematicViscosity(p=p, t=t)
 print result
 ```
 
 ```python title="Result"
-78.4085151171
+2.04697021313e-05
 ```

@@ -1,0 +1,59 @@
+---
+id: system-thermo-if97-refractiveIndex
+title: system.thermo.if97.refractiveIndex
+sidebar_label: refractiveIndex
+---
+
+Calculates refractive index.
+
+## Syntax
+
+```python
+system.thermo.if97.refractiveIndex(h, s, l) # Enthalpy, Entropy, and Wavelength
+system.thermo.if97.refractiveIndex(p, h, l) # Pressure, Enthalpy, and Wavelength
+system.thermo.if97.refractiveIndex(p, s, l) # Pressure, Entropy, and Wavelength
+system.thermo.if97.refractiveIndex(p, t, l) # Pressure, Temperature, and Wavelength
+system.thermo.if97.refractiveIndex(rho, t, l) # Density, Temperature, and Wavelength
+```
+
+:::info
+This function must be called with named parameters.
+:::
+
+### Parameters
+
+<APITable>
+
+| Type     | Parameter | Description                     |
+| -------- | --------- | ------------------------------- |
+| _Double_ | h         | Specific Enthalpy (J/kg)        |
+| _Double_ | p         | Absolute Pressure (Pa)          |
+| _Double_ | s         | Specific Entropy (J/(kg·K))     |
+| _Double_ | t         | Temperature (K)                |
+| _Double_ | rho       | Density (kg/m³)                |
+| _Double_ | l         | Wavelength (nm)                |
+
+</APITable>
+
+### Returns
+__Double__ - Refractive Index [-]
+
+The refractive index of the substance under the specified conditions.
+
+### Scope
+Gateway, Designer, Client, Perspective Session
+
+## Example
+
+### Pressure, Temperature, and Wavelength
+```python
+p = 101325
+t = 373.15
+l = 5.0e-07
+result = system.thermo.if97.refractiveIndex(p=p, t=t, l=l)
+print result
+```
+
+```python title="Result"
+1.00019186213
+```

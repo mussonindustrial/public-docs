@@ -1,0 +1,50 @@
+---
+id: system-thermo-if97-specificVolumeSaturatedVapor
+title: system.thermo.if97.specificVolumeSaturatedVapor
+sidebar_label: specificVolumeSaturatedVapor
+---
+
+Calculates the specific volume for saturated vapor.
+
+## Syntax
+
+```python
+system.thermo.if97.specificVolumeSaturatedVapor(p) # Pressure
+system.thermo.if97.specificVolumeSaturatedVapor(t) # Temperature
+```
+
+:::info
+This function must be called with named parameters.
+:::
+
+### Parameters
+
+<APITable>
+
+| Type     | Parameter | Description                     |
+| -------- | --------- | ------------------------------- |
+| _Double_ | p         | Absolute Pressure (Pa)          |
+| _Double_ | t         | Temperature (K)                |
+
+</APITable>
+
+### Returns
+__Double__ - Specific Volume for Saturated Vapor (m³/kg)
+
+The volume of a vapor in equilibrium at the given pressure or temperature.
+
+### Scope
+Gateway, Designer, Client, Perspective Session
+
+## Example
+
+### Temperature
+```python
+t = 373.15
+result = system.thermo.if97.specificVolumeSaturatedVapor(t=t)
+print result
+```
+
+```python title="Result"
+1.67186060109
+```

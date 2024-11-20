@@ -1,0 +1,55 @@
+---
+id: system-thermo-if97-specificEnthalpy
+title: system.thermo.if97.specificEnthalpy
+sidebar_label: specificEnthalpy
+---
+
+Calculates specific enthalpy.
+
+## Syntax
+
+```python
+system.thermo.if97.specificEnthalpy(p, s) # Pressure and Entropy
+system.thermo.if97.specificEnthalpy(p, t) # Pressure and Temperature
+system.thermo.if97.specificEnthalpy(p, x) # Pressure and Vapor Fraction (Quality)
+system.thermo.if97.specificEnthalpy(t, x) # Temperature and Vapor Fraction (Quality)
+```
+
+:::info
+This function must be called with named parameters.
+:::
+
+### Parameters
+
+<APITable>
+
+| Type     | Parameter | Description                     |
+| -------- | --------- | ------------------------------- |
+| _Double_ | p         | Absolute Pressure (Pa)          |
+| _Double_ | s         | Specific Entropy (J/(kg·K))     |
+| _Double_ | t         | Temperature (K)                |
+| _Double_ | x         | Vapor Fraction (Quality) (0 to 1)               |
+
+</APITable>
+
+### Returns
+__Double__ - Specific Enthalpy (J/kg)
+
+The total energy per unit mass of a substance, including both internal energy and flow work.
+
+### Scope
+Gateway, Designer, Client, Perspective Session
+
+## Example
+
+### Pressure and Temperature
+```python
+p = 101325
+t = 373.15
+result = system.thermo.if97.specificEnthalpy(p=p, t=t)
+print result
+```
+
+```python title="Result"
+2675584.85341
+```
