@@ -5,9 +5,9 @@
  * LICENSE file in the root directory of this source tree.
  */
 
- .apiTable {
+ /* .apiTable {
     font-size: small;
-  }
+  } */
   
   .apiTable tbody tr {
     transition: box-shadow 0.2s;

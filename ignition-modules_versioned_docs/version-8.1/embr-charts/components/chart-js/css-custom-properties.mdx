@@ -1,0 +1,20 @@
+# CSS Custom Properties
+Any component property value starting with `var(--` will use the corresponding CSS variable's value at render time.
+
+:::note
+The property value is only evaluated during the render. Changing the property value will have no effect until the chart is re-rendered.
+:::
+
+## CSS Custom Property Example
+```js
+// Use var(--my-background-color) custom property
+{
+  "datasets": [
+    {
+      "data": [...],
+      "label": "Dataset",
+      "backgroundColor": "var(--my-background-color)"
+    }
+  ]
+}
+```

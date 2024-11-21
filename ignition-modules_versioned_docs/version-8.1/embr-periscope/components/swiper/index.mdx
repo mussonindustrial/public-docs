@@ -1,0 +1,58 @@
+# Swiper
+
+[Swiper] is the most modern free and open source mobile touch slider with hardware accelerated transitions and amazing native behavior.
+
+## Properties
+
+<APITable>
+
+| Name | Description | Property Type |
+| -- | -- | -- |
+| `instances` | Array of slide instances. | `array` |
+| `instanceCommon` | Properties shared between all instances. | `object` | 
+| `settings` | Swiper settings. | `object` |
+| `style` | Use styles to customize the visual style of the component. Full menu of style options is available for text, background, margin and padding, border, shape and miscellaneous. You can also specify a style class. | `object` | 
+
+</APITable>
+
+### Instance Properties
+
+The following properties are supported both:
+1. For individual instances (each item in the array of `instances`).
+2. For all instances (in `instanceCommon`)
+
+:::tip[Instance Common]
+Settings in `instanceCommon` are inherited by all instances unless overridden. See [Property Inheritance](./property-inheritance) for more details.
+:::
+
+<APITable>
+
+| Name | Description | Property Type |
+| -- | -- | -- |
+| `viewPath` | View path of this instance. | `string` |
+| `viewParams` | Parameters for this instance. | `object` | 
+| `viewStyle` | Styles applied to the view. | `object` |
+| `slideStyle` | Styles applied to the slide. The slide is the container of the view. | `object` |
+| `useDefaultHeight` | Use default view height. | `boolean` |
+| `useDefaultMinHeight` | Use default minimum view height. | `boolean` |
+| `useDefaultWidth` | Use default view width. | `boolean` |
+| `useDefaultMinWidth` | Use default minimum view width. | `boolean` |
+
+</APITable>
+
+
+
+#
+
+
+## Configuration Details
+
+Details on how to configure the component can be found on the [Swiper documentation site][Swiper].
+All property configurations supported by Swiper are supported on the Perspective component.
+
+Only configuration details specific to this module are provided here.
+
+<DocCardList />
+
+[Swiper]: https://swiperjs.com/
+[Swiper documentation]: https://swiperjs.com/swiper-api#parameters
