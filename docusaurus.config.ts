@@ -29,7 +29,7 @@ const config: Config = {
         path: 'site',
         routeBasePath: '',
         sidebarPath: './site/sidebars.ts',
-        sidebarCollapsible: false,
+        sidebarCollapsible: true,
         showLastUpdateAuthor: true,
         showLastUpdateTime: true,
       }
