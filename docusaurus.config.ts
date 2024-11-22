@@ -113,15 +113,15 @@ const config: Config = {
             title: 'Ignition Modules',
             items: [
               {
-                label: 'Embr-Charts',
+                label: 'Embr Charts',
                 to: 'ignition/embr-charts'
               },
               {
-                label: 'Embr-Periscope',
+                label: 'Embr Periscope',
                 to: 'ignition/embr-periscope'
               },
               {
-                label: 'Embr-Thermodynamics',
+                label: 'Embr Thermodynamics',
                 to: 'ignition/embr-thermodynamics'
               }
             ],
