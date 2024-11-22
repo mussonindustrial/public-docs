@@ -1,4 +1,4 @@
-import type {Config} from '@docusaurus/types';
+import type {Config, PluginConfig} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
 import {themes as prismThemes} from 'prism-react-renderer';
@@ -29,11 +29,11 @@ const config: Config = {
         path: 'site',
         routeBasePath: '',
         sidebarPath: './site/sidebars.ts',
-        sidebarCollapsible: true,
+        sidebarCollapsible: false,
         showLastUpdateAuthor: true,
         showLastUpdateTime: true,
       }
-    ],
+    ] satisfies PluginConfig,
     [
       '@docusaurus/plugin-content-docs',
       {
@@ -51,7 +51,7 @@ const config: Config = {
       {
         customCss: require.resolve('./src/css/custom.css'),
       },
-    ],
+    ] satisfies PluginConfig,
   ],
 
   themes: ["docusaurus-theme-openapi-docs"], // exports ApiItem and ApiDemoPanel
