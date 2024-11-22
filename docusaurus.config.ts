@@ -95,13 +95,13 @@ const config: Config = {
             position: 'right',
           },
           {
-            href: 'https://mussonindustrial.com/downloads',
+            href: 'https://github.com/mussonindustrial/embr/releases',
             label: 'Downloads',
             position: 'right',
           },
           {
-            href: 'https://mussonindustrial.com/sales',
-            label: 'Sales',
+            href: 'https://mussonindustrial.com/contact-us',
+            label: 'Contact Us',
             position: 'right',
           }
         ],
