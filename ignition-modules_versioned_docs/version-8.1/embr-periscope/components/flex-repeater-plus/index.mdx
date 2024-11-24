@@ -1,7 +1,7 @@
 # Flex Repeater +
 
 This component is a enhancement of the default [Flex Repeater] component with server-side property mapping.
-Additionally, it supports per-instance view paths and sharing of common parameters into all views.
+Additionally, it supports per-instance view paths, sharing of common parameters into all views, and manually specified instance keys.
 
 ## Enhancements
 
@@ -105,6 +105,7 @@ Settings in `instanceCommon` are inherited by all instances unless overridden. S
 
 | Name | Description | Property Type |
 | -- | -- | -- |
+| `key` | Instance [React Key]. If it is empty, a random UUID will be assigned. This is used to identify the instance through insertions/deletions. | `string` |
 | `viewPath` | View path of this instance. | `string` |
 | `viewParams` | Parameters for this instance. | `object` | 
 | `viewStyle` | Styles applied to the view. | `object` |
@@ -116,7 +117,10 @@ Settings in `instanceCommon` are inherited by all instances unless overridden. S
 
 </APITable>
 
+## Extension Function
+
 
 
 [Flex Repeater]: https://www.docs.inductiveautomation.com/docs/8.1/appendix/components/perspective-components/perspective-embedding-palette/perspective-flex-repeater
 [Flex Repeater +]: ./
+[React Key]: https://react.dev/learn/rendering-lists#keeping-list-items-in-order-with-key

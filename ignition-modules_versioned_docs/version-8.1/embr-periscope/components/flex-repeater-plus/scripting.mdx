@@ -1,0 +1,94 @@
+---
+title: Flex Repeater + Scripting
+sidebar_label: Scripting
+---
+
+# Flex Repeater + Scripting
+
+This page details the various scripting, component, and extension functions available for the [Flex Repeater +] component.
+
+## Component Events
+This component does not have any associated events.
+
+## Component Functions
+
+
+### popInstance
+
+Remove a view instance.
+
+#### Syntax
+
+```python
+self.popInstance() # Remove the last instance.
+self.popInstance(index) # Remove a specific instance. 
+```
+
+##### Parameters
+
+<APITable>
+
+| Type | Parameter | Description |
+| --- | --- | --- |
+| _Int_ | index | Instance index to remove.
+
+</APITable>
+
+#### Returns
+No return value.
+
+### pushInstance
+
+Append an instance or list of instances to the end of the current instances list.
+
+#### Syntax
+
+```python
+self.pushInstance(instance) # Append an instance to the end of the current instances list.
+self.pushInstance([instances]) # Append a list of instances to the end of the current instances list.
+```
+
+##### Parameters
+
+<APITable>
+
+| Type | Parameter | Description |
+| --- | --- | --- |
+| _dictionary_ or _list_ | instance | Instance or instances to append. See [Instance Properties] for more details.
+
+</APITable>
+
+#### Returns
+No return value.
+
+### insertInstance
+
+Insert an instance or list of instances into the current instances list.
+
+#### Syntax
+
+```python
+self.insertInstance(index, instance) # Insert an instance into the current instances list.
+self.insertInstance(index, [instances]) # Insert a list of instances into the current instances list.
+```
+
+##### Parameters
+
+<APITable>
+
+| Type | Parameter | Description |
+| --- | --- | --- |
+| _Int_ | index | Index to start the insertion.
+| _dictionary_ or _list_ | instance | Instance or instances to insert. See [Instance Properties] for more details.
+
+</APITable>
+
+#### Returns
+No return value.
+
+
+## Extension Function
+This component does not have any associated extension functions.
+
+[Flex Repeater +]: ./
+[Instance Properties]: ./#instance-properties
