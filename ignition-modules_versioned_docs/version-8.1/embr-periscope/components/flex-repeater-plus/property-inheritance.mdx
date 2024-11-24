@@ -1,0 +1,107 @@
+# Property Inheritance
+
+## Examples
+### Shared View Path
+
+To use the same view path for all instances, define the `viewPath` property under `instanceCommon`.
+
+```JavaScript
+{
+    instanceCommon: {
+        viewPath: 'Path/To/View'
+    },
+    instances: [
+        {
+            viewParams: {
+                label: 'Instance 1'
+            }
+        },
+        {
+            viewParams: {
+                label: 'Instance 2'
+            }
+        },
+        {
+            viewParams: {
+                label: 'Instance 3'
+            }
+        }
+    ]
+}
+```
+:::note
+None of the instances specify a `viewPath`, so they inherit the `viewPath` from `instanceCommon`.
+:::
+
+### Override Instance Common
+
+Now lets say that `Instance 2` should use a different view than the other instances.
+We can specify a `viewPath` on `Instance 2` in order to override the path coming from `instanceCommon`.
+
+```JavaScript
+{
+    instanceCommon: {
+        viewPath: 'Path/To/View'
+    },
+    instances: [
+        {
+            viewParams: {
+                label: 'Instance 1'
+            }
+        },
+        {
+            viewParams: {
+                label: 'Instance 2'
+            }
+        },
+        {
+            viewParams: {
+                label: 'Instance 3'
+            }
+        }
+    ]
+}
+```
+:::note
+`Instance 2` is overriding the `viewPath` from `instanceCommon`.
+:::
+
+### Parameter Inheritance
+
+The `viewParams` object in `instanceCommon` can be used to pass parameters into all view instances.
+
+If the parameter is specified at the instance level it will be overridden.
+
+:::tip
+Parameter overrides only happen at the top level of the `viewParams` object.
+:::
+
+```JavaScript
+{
+    instanceCommon: {
+        viewPath: 'Path/To/View',
+        viewParams: {
+            sharedParameter: 'value'
+        }
+
+    },
+    instances: [
+        {
+            viewParams: {
+                label: 'Instance 1'
+            }
+        },
+        {
+            viewParams: {
+                label: 'Instance 2',
+                sharedParameter: 'Overwrite of parameter value in instanceCommon.'
+            }
+        },
+        {
+            viewParams: {
+                label: 'Instance 3'
+            }
+        }
+    ]
+}
+```

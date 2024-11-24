@@ -1,0 +1,83 @@
+# Embedded View +
+
+This component is a enhancement of the default [Embedded View] component with server-side property mapping.
+
+## Enhancements
+
+This component contains several improvements over the default [Embedded View] component.
+
+### View Parameter Latency
+
+#### Default Component
+The default [Embedded View] component passes parameters into its view instance on the client side.
+Therefore, in order for bindings to propagate through the component into the view, a websocket send/reply cycle is required between the Perspective client and the gateway.
+
+:::warning
+This cycle can introduce considerable delay for multiple nested embedded views.
+:::
+
+:::danger
+Clients with high latency will experience especially degraded performance.
+:::
+
+#### Server Side Parameter Binding
+Instead of passing parameters to the view instance on the client side, the [Embedded View +] component links its own property tree to the view instance property tree though `PropertyTreeSubscriptions`.
+These subscriptions operate entirely on the gateway and require no send/reply cycle with the client.
+
+:::info
+Parameter changes both in and out of the view instance happen considerably faster than the default component.
+:::
+
+
+#### Parameter Change Latency
+
+The following are expected property transit times for a locally hosted gateway (Perspective client is running on the same machine as the gateway).
+
+<APITable>
+
+| Nested Views | [Embedded View] | [Embedded View +] |
+| -- | -- | -- |
+| 1 | ~100ms | ~0.220ms |
+| 2 | ~200ms | ~0.440ms |
+| 3 | ~300ms | ~0.660ms |
+| 4 | ~400ms | ~0.880ms |
+| 4 | ~500ms | ~1.100ms |
+
+</APITable>
+
+
+### View Startup Time
+
+#### Default Component
+The default [Embedded View] component starts its view instance from the client side.
+As a result, bindings on the view instance do not start until the client is already attempting to render the view.
+
+#### Preemptive View Startup
+Instead of waiting for the client to request that starting of the view instance, the [Embedded View +] component preemptively starts its view instance during the `ComponentModelDelegate` startup phase.
+This gives bindings and scripts a chance to run before the client attempts a render.
+
+:::info
+This results in less parameter trashing on startup, where initial values are immediately changed by a binding/script.
+:::
+
+
+## Properties
+
+<APITable>
+
+| Name | Description | Property Type |
+| -- | -- | -- |
+| `viewPath` | View path of the view instance. | `string` |
+| `viewParams` | Parameters for this view instance. | `object` | 
+| `viewStyle` | Styles applied to the view. | `object` |
+| `useDefaultHeight` | Use default view height. | `boolean` |
+| `useDefaultMinHeight` | Use default minimum view height. | `boolean` |
+| `useDefaultWidth` | Use default view width. | `boolean` |
+| `useDefaultMinWidth` | Use default minimum view width. | `boolean` |
+| `style` | Use styles to customize the visual style of the component. Full menu of style options is available for text, background, margin and padding, border, shape and miscellaneous. You can also specify a style class. | `object` | 
+
+</APITable>
+
+
+[Embedded View]: https://www.docs.inductiveautomation.com/docs/8.1/appendix/components/perspective-components/perspective-embedding-palette/perspective-embedded-view
+[Embedded View +]: ./

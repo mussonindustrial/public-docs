@@ -1,0 +1,121 @@
+# Flex Repeater +
+
+This component is a enhancement of the default [Flex Repeater] component with server-side property mapping.
+
+## Enhancements
+
+This component contains several improvements over the default [Flex Repeater] component.
+
+### View Parameter Latency
+
+#### Default Component
+The default [Flex Repeater] component passes parameters into its view instances on the client side.
+Therefore, in order for bindings to propagate through the component into the view, a websocket send/reply cycle is required between the Perspective client and the gateway.
+
+:::warning
+This cycle can introduce considerable delay for multiple nested embedded views.
+:::
+
+:::danger
+Clients with high latency will experience especially degraded performance.
+:::
+
+#### Server Side Parameter Binding
+Instead of passing parameters to the view instances on the client side, the [Flex Repeater +] component links its own property tree to the view instances property trees though `PropertyTreeSubscriptions`.
+These subscriptions operate entirely on the gateway and require no send/reply cycle with the client.
+
+:::info
+Parameter changes both in and out of the view instances happen considerably faster than the default component.
+:::
+
+
+#### Parameter Change Latency
+
+The following are expected property transit times for a locally hosted gateway (Perspective client is running on the same machine as the gateway).
+
+<APITable>
+
+| Nested Views | [Flex Repeater] | [Flex Repeater +] |
+| -- | -- | -- |
+| 1 | ~100ms | ~0.220ms |
+| 2 | ~200ms | ~0.440ms |
+| 3 | ~300ms | ~0.660ms |
+| 4 | ~400ms | ~0.880ms |
+| 4 | ~500ms | ~1.100ms |
+
+</APITable>
+
+
+### View Startup Time
+
+#### Default Component
+The default [Flex Repeater] component starts its view instances from the client side.
+As a result, bindings on the view instances do not start until the client is already attempting to render the views.
+
+#### Preemptive View Startup
+Instead of waiting for the client to request that starting of the view instances, the [Flex Repeater +] component preemptively starts its view instances during the `ComponentModelDelegate` startup phase.
+This gives bindings and scripts a chance to run before the client attempts a render.
+
+:::info
+This results in less parameter trashing on startup, where initial values are immediately changed by a binding/script.
+:::
+
+
+## Properties
+
+<APITable>
+
+| Name | Description | Property Type |
+| -- | -- | -- |
+| `instances` | Array of embedded-view instances. | `array` |
+| `instanceCommon` | Properties shared between all instances. | `object` | 
+| `settings` | Instance display settings. | `object` |
+| `style` | Use styles to customize the visual style of the component. Full menu of style options is available for text, background, margin and padding, border, shape and miscellaneous. You can also specify a style class. | `object` | 
+
+</APITable>
+
+### Settings
+
+<APITable>
+
+| Name | Description | Property Type |
+| -- | -- | -- |
+| `direction` | Direction of layout of repeated views. | `string` |
+| `wrap` | Whether the container should allow repeated views to wrap to next line if space has run out. | `string` | 
+| `justify` | Adjust placement of repeated views along the main axis when there is extra space, which may be used to fill areas before, after, or in-between. | `string` |
+| `alignItems` | Adjusts placement of repeated views along the cross axis when there is extra space. | `string` |
+| `alignContent` | Adjust alignment of repeated views when there is free space in the cross axis. | `string` |
+
+</APITable>
+
+
+
+### Instance Properties
+
+The following properties are supported both:
+1. For individual instances (each item in the array of `instances`).
+2. For all instances (in `instanceCommon`)
+
+:::tip[Instance Common]
+Settings in `instanceCommon` are inherited by all instances unless overridden. See [Property Inheritance](./property-inheritance) for more details.
+:::
+
+<APITable>
+
+| Name | Description | Property Type |
+| -- | -- | -- |
+| `viewPath` | View path of this instance. | `string` |
+| `viewParams` | Parameters for this instance. | `object` | 
+| `viewStyle` | Styles applied to the view. | `object` |
+| `viewPosition` | Instance position properties. | `object` |
+| `useDefaultHeight` | Use default view height. | `boolean` |
+| `useDefaultMinHeight` | Use default minimum view height. | `boolean` |
+| `useDefaultWidth` | Use default view width. | `boolean` |
+| `useDefaultMinWidth` | Use default minimum view width. | `boolean` |
+
+</APITable>
+
+
+
+[Flex Repeater]: https://www.docs.inductiveautomation.com/docs/8.1/appendix/components/perspective-components/perspective-embedding-palette/perspective-flex-repeater
+[Flex Repeater +]: ./
