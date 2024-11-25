@@ -54,7 +54,7 @@ const config: Config = {
     ] satisfies PluginConfig,
   ],
 
-  themes: ["docusaurus-theme-openapi-docs"], // exports ApiItem and ApiDemoPanel
+  themes: ['docusaurus-theme-openapi-docs', '@docusaurus/theme-search-algolia'], // exports ApiItem and ApiDemoPanel
   themeConfig: {
       navbar: {
         title: 'Musson Industrial',
@@ -196,6 +196,14 @@ const config: Config = {
       //   textColor: '#091E42',
       //   isCloseable: true,
       // },
+      algolia: {
+        appId: '4XIRE6JRF9',
+        apiKey: 'cad4a01f5cf77c06a1e62dc0573cbdd4',
+        indexName: 'mussonindustrial',
+        contextualSearch: true,
+        searchPagePath: 'search',
+        insights: false,
+      },
     } satisfies Preset.ThemeConfig,
 } satisfies Config;
 
