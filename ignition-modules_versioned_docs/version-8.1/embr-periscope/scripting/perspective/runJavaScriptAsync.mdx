@@ -1,0 +1,208 @@
+---
+id: system-perspective-runJavaScriptAsync
+title: system.perspective.runJavaScriptAsync
+sidebar_label: runJavaScriptAsync
+---
+
+## Overview
+The `system.perspective.runJavaScriptAsync` function allows you to asynchronously run JavaScript code on the client side within a Perspective session. 
+You can also pass arguments to the JavaScript function and specify a callback to handle the result once the JavaScript execution is completed. 
+
+:::tip
+You can also return promises from the function, allowing for asynchronous behavior without blocking the Perspective client.
+:::
+
+## Syntax
+
+```python
+system.perspective.runJavaScriptAsync(function, [args], [callback], [sessionId], [pageId])
+```
+
+### Parameters
+
+<APITable>
+
+| Type | Parameter | Description |
+| --- | --- | --- |
+| _String_ | function | JavaScript function to run. Should be formatted as an arrow function. You may return a promise and resolve it later.
+| _Dictionary\<String, any>_ | args | _Optional._ Dictionary of arguments to use when calling the function. The keys of the dictionary should match the names of the arrow function arguments.
+| _Function_ | callback | _Optional._ Function to run once the function has returned/resolved. Should take a single parameter containing the result of the function.
+| _String_ | sessionId | _Optional._ Identifier of the Session to target. If omitted, the current Session will be used automatically. When targeting a different Session, the pageId parameter must be included in the call.
+| _String_ | pageId | _Optional._ Identifier of the page to be closed. If omitted, the current pageId is used. 
+
+</APITable>
+
+
+### Returns
+Nothing
+:::info
+The function does not return a value directly to the caller. 
+Instead, the result is passed to the provided callback function once the JavaScript code has completed execution.
+:::
+
+### Scope
+Gateway, Perspective Session
+
+## Detailed Explanation
+
+### Asynchronous Behavior
+[runJavaScriptAsync] is asynchronous, meaning it won't block the Perspective session or other code from executing while waiting for the JavaScript function to complete. 
+This is crucial for ensuring a responsive user interface and non-blocking execution in real-time applications.
+
+JavaScript functions executed via [runJavaScriptAsync] are run on the client side, so they can interact with the browser environment, handle client-specific behavior, and perform computations that don't require blocking the server-side Perspective session.
+
+### Function Structure
+The JavaScript function you provide to [runJavaScriptAsync] should be written in a way that either immediately returns a value or returns a `Promise` if you want to handle asynchronous operations like waiting for a timeout, making network requests, or processing data asynchronously.
+
+You may also define JavaScript functions as asynchronous using the `async` keyword. 
+If your function is asynchronous, you must either await promises within it or explicitly return them.
+
+### Use of Arguments
+When calling the JavaScript function, you can pass in a dictionary of arguments. 
+The keys in the dictionary should match the parameter names in the JavaScript function. This allows you to dynamically pass in data to the JavaScript code, enabling the function to be more flexible and reusable.
+
+
+## Examples
+
+### Without Arguments
+
+This simple example shows how to run a JavaScript function without any input arguments.
+
+```python
+# JavaScript function to run on the client.
+function = '() => 1 + 2 + 3 + 4 + 5'
+
+# Will be called after the result of the JavaScript function is returned to the gateway.
+def callback(result):
+    system.perspective.print(result)
+
+system.perspective.runJavaScriptAsync(function, {}, callback)
+```
+
+```python title="Console"
+15
+```
+
+In this case, the function simply calculates the sum of the numbers 1 through 5. 
+The result, 15, is then passed to the callback function and printed in the client console.
+
+### With Arguments
+
+You can also pass arguments to the JavaScript function. 
+The arguments are passed in a dictionary, and the keys in the dictionary should match the function's parameter names.
+
+
+```python
+# Function with three parameters.
+function = '''(param1, param2, param3) => {
+    return param1 + param2 + param3.value;
+}'''
+
+def callback(result):
+    system.perspective.print(result)
+
+# The keys of the arguments dictionary are mapped to the function argument names.
+args = {
+    'param1': 10,
+    'param2': 20,
+    'param3': {
+        'value': 30
+    }
+}
+
+system.perspective.runJavaScriptAsync(function, args, callback)
+```
+
+```python title="Console"
+60
+```
+
+In this example, the JavaScript function takes three parameters and adds their values together. 
+The third argument, param3, is an object that contains the key value, which is accessed inside the function.
+
+### Async JavaScript
+
+:::info
+[runJavaScriptAsync] is always asynchronous for the caller (it will not block the Perspective execution queue).
+The following examples demonstrate non-blocking _client_ side code.
+:::
+
+#### Returning a Promise
+
+The function can also return a `Promise`. 
+When you return a promise from the JavaScript function, the callback will only be called once the promise resolves.
+
+```python
+# Function that resolves a promise after a delay.
+function = '''(delay, message) => {
+    return new Promise((resolve) => {
+        setTimeout(() => resolve(message), delay)
+    })
+}'''
+
+# Will be called when the promise resolves.
+def callback(result):
+    system.perspective.print(result)
+
+args = {
+    'delay': 5000,
+    'message': 'A disturbance in the force...'
+}
+
+system.perspective.runJavaScriptAsync(function, args, callback)
+```
+
+```python title="Console"
+# After 5 second delay...
+A disturbance in the force...
+```
+
+In this case, the JavaScript function creates a promise that resolves after a specified delay (5000 milliseconds or 5 seconds). 
+
+#### Async Function Definition
+
+Alternatively, you can define an async JavaScript function directly. 
+This allows you to use await inside the function to wait for promises to resolve.
+
+```python
+# The function definition can be async.
+function = '''async (delay) => {
+    function waitForDelay() {
+        return new Promise((resolve) => {
+            setTimeout(() => resolve('resolved'), delay)
+        })
+    }
+
+    return await waitForDelay()
+}'''
+
+def callback(result):
+    system.perspective.print(result)
+
+args = {
+    'delay': 5000
+}
+
+system.perspective.runJavaScriptAsync(function, args, callback)
+```
+
+```python title="Console"
+# After 5 second delay...
+resolved
+```
+
+In this example, the JavaScript function is defined as async and uses the await keyword to wait for the promise returned by waitForDelay to resolve.
+The result of the resolved promise is passed to the callback function.
+
+
+## Comparison with [runJavaScriptBlocking]
+While [runJavaScriptAsync] is non-blocking and runs JavaScript asynchronously, there may be cases where you need the execution to be blocking and synchronous.
+In these cases, you can use [runJavaScriptBlocking], which will block the Perspective session until the JavaScript function completes and returns a result.
+
+| Function | Use Case |
+| - | - |
+| [runJavaScriptAsync] | Asynchronous execution; does not block execution. Use it for non-blocking, client-side operations, especially for long-running tasks that don't need immediate results. |
+| [runJavaScriptBlocking] | Synchronous execution; blocks execution until the JavaScript function finishes. Use it when you need the result of the JavaScript function immediately and cannot proceed without it. |
+
+[runJavaScriptAsync]: ./runJavaScriptAsync.mdx
+[runJavaScriptBlocking]: ./runJavaScriptBlocking.mdx

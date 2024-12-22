@@ -1,0 +1,208 @@
+---
+id: system-perspective-runJavaScriptBlocking
+title: system.perspective.runJavaScriptBlocking
+sidebar_label: runJavaScriptBlocking
+---
+
+## Overview
+The `system.perspective.runJavaScriptBlocking` function allows you to run JavaScript code on the client side within a Perspective session. 
+You can also pass arguments to the JavaScript function.
+
+## Syntax
+
+```python
+system.perspective.runJavaScriptBlocking(function, [args], [sessionId], [pageId])
+```
+
+### Parameters
+
+<APITable>
+
+| Type | Parameter | Description |
+| --- | --- | --- |
+| _String_ | function | JavaScript function to run. Should be formatted as an arrow function. You may return a promise and resolve it later.
+| _Dictionary\<String, any>_ | args | _Optional._ Dictionary of arguments to use when calling the function. The keys of the dictionary should match the names of the arrow function arguments.
+| _String_ | sessionId | _Optional._ Identifier of the Session to target. If omitted, the current Session will be used automatically. When targeting a different Session, the pageId parameter must be included in the call.
+| _String_ | pageId | _Optional._ Identifier of the page to be closed. If omitted, the current pageId is used. 
+
+</APITable>
+
+
+### Returns
+__Any__ - The return value of the JavaScript function.
+
+### Scope
+Gateway, Perspective Session
+
+## Detailed Explanation
+
+## Blocking behavior
+Unlike [runJavaScriptAsync], the [runJavaScriptBlocking] function will block the execution of the Perspective script until the provided JavaScript function has executed and returned a result. 
+This means that the Perspective runtime will wait for the JavaScript function to complete before proceeding with any subsequent code. 
+This blocking behavior is useful when the result of the JavaScript function is required to continue processing, for example, when performing synchronous calculations or interacting with data that must be processed before further actions are taken.
+
+:::warning
+Because this function blocks execution, it should be used sparingly in scenarios where you don't want to delay or lock up other processes in your Perspective session.
+:::
+
+### Use of Arguments
+When calling the JavaScript function, you can pass in a dictionary of arguments. 
+The keys in the dictionary should match the parameter names in the JavaScript function. This allows you to dynamically pass in data to the JavaScript code, enabling the function to be more flexible and reusable.
+
+
+## Examples
+
+### Without Arguments
+
+This simple example shows how to run a JavaScript function without any input arguments.
+
+```python
+# JavaScript function to run on the client.
+function = '() => 1 + 2 + 3 + 4 + 5'
+
+# Running the function and capturing the result.
+result = system.perspective.runJavaScriptBlocking(function)
+
+# Print the result.
+system.perspective.print(result)
+```
+
+```python title="Console"
+15
+```
+
+In this case, the function simply calculates the sum of the numbers 1 through 5. 
+The result, 15, is printed in the client console.
+Since [runJavaScriptBlocking] is used, the script will wait for the function to complete before proceeding.
+
+### With Arguments
+
+You can also pass arguments to the JavaScript function. 
+The arguments are passed in a dictionary, and the keys in the dictionary should match the function's parameter names.
+
+
+```python
+# Function with three parameters.
+function = '''(param1, param2, param3) => {
+    return param1 + param2 + param3.value;
+}'''
+
+def callback(result):
+    system.perspective.print(result)
+
+# The keys of the arguments dictionary are mapped to the function argument names.
+args = {
+    'param1': 10,
+    'param2': 20,
+    'param3': {
+        'value': 30
+    }
+}
+
+# Running the function with arguments and capturing the result.
+result = system.perspective.runJavaScriptAsync(function, args, callback)
+
+# Print the result.
+system.perspective.print(result)
+```
+
+```python title="Console"
+60
+```
+
+In this example, the JavaScript function takes three parameters and adds their values together. 
+The third argument, param3, is an object that contains the key value, which is accessed inside the function.
+
+### Handling Promises
+Unlike [runJavaScriptAsync], which is designed to work with asynchronous code without blocking, [runJavaScriptBlocking] will block the script until the JavaScript function has finished executing, even if it returns a promise. 
+If your function returns a promise, [runJavaScriptBlocking] will wait for the promise to resolve before returning the result. 
+This can be useful when you need to handle asynchronous tasks but still need to maintain blocking behavior.
+
+
+```python
+# Function that returns a promise.
+function = '''(delay, message) => {
+    return new Promise((resolve) => {
+        setTimeout(() => resolve(message), delay)
+    })
+}'''
+
+# Arguments to pass to the JavaScript function.
+args = {
+    'delay': 5000,
+    'message': 'A disturbance in the force...'
+}
+
+# Running the function and capturing the result after the promise resolves.
+result = system.perspective.runJavaScriptBlocking(function, args)
+
+# Print the result.
+system.perspective.print(result)
+```
+
+```python title="Console"
+# After 5 second delay...
+A disturbance in the force...
+```
+
+In this case, the function returns a promise that resolves after a 5-second delay. 
+Even though [runJavaScriptBlocking] is typically for synchronous operations, it can still handle promises and will block until the promise is resolved, allowing the result to be printed after the delay.
+
+### Asynchronous Operations within a Synchronous Context
+While [runJavaScriptBlocking] is typically used for blocking synchronous operations, there may be times when you need to handle asynchronous operations within it. 
+Here's an example of defining an async function within the [runJavaScriptBlocking] call.
+
+```python
+# Async function within blocking call.
+function = '''async (delay) => {
+    function waitForDelay() {
+        return new Promise((resolve) => {
+            setTimeout(() => resolve('resolved'), delay)
+        })
+    }
+
+    return await waitForDelay()
+}'''
+
+# Arguments to pass to the JavaScript function.
+args = {
+    'delay': 5000
+}
+
+# Running the function and capturing the result after the promise resolves.
+result = system.perspective.runJavaScriptBlocking(function, args)
+
+# Print the result.
+system.perspective.print(result)
+```
+
+```python title="Console"
+# After 5 second delay...
+resolved
+```
+
+Here, the JavaScript function is async and returns a promise that resolves after a 5-second delay. 
+Even though the function is asynchronous, [runJavaScriptBlocking] ensures that the script execution waits for the result before proceeding.
+
+
+## Considerations and Best Practices
+
+### Use Blocking Functions Sparingly
+
+Since [runJavaScriptBlocking] blocks the execution of the Perspective session until the JavaScript function finishes executing, it should be used carefully.
+Avoid using it for long-running or complex operations that might delay the responsiveness of the Perspective application. 
+
+:::tip
+If you don't need to wait for a result immediately, consider using [runJavaScriptAsync] instead to maintain a more responsive user experience.
+:::
+
+### Synchronous Operations
+[runJavaScriptBlocking] is best suited for synchronous operations, where the result of the JavaScript function is immediately needed. 
+For operations that involve long-running processes or external data fetching, it is generally better to handle them asynchronously to prevent the entire Perspective session from becoming blocked.
+
+### Targeting Specific Sessions and Pages
+As with [runJavaScriptAsync], you can use the sessionId and pageId parameters to target specific sessions and pages.
+These parameters are useful in environments with multiple Perspective sessions or pages, allowing you to execute the JavaScript function in the correct context.
+
+[runJavaScriptAsync]: ./runJavaScriptAsync.mdx
+[runJavaScriptBlocking]: ./runJavaScriptBlocking.mdx
