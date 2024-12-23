@@ -1,0 +1,180 @@
+---
+id: getJavaScriptProxy
+title: getJavaScriptProxy
+sidebar_label: getJavaScriptProxy
+---
+
+Returns an object that allows running client-side JavaScript against a component property.
+
+See [JavaScript Proxy Objects](/ignition/embr-core/javascript-proxy/) for more information.
+
+## Overview
+
+### Syntax
+
+```python
+proxy = component.getJavaScriptProxy(property)
+```
+
+### Parameters
+
+<APITable>
+
+| Type | Parameter | Description |
+| --- | --- | --- |
+| _String_ | property | Name of the component property to proxy. Supported properties: `chart`
+
+</APITable>
+
+### Returns
+__JavaScriptProxy__ - A proxy for the JavaScript `property`. 
+
+
+## Examples
+
+### Reset Zoom
+
+This simple example resets the zoom status of the chart.
+
+```python
+# JavaScript function to run on the client. `this` refers to the chart instance.
+resetZoom = '(mode) => this.resetZoom(mode)'
+
+# JavaScript function arguments.
+args = {
+    'mode': 'none'
+}
+
+# Get a proxy for an Embr-Charts Chart.js chart instance.
+chart = self.getJavaScriptProxy('chart')
+
+# Asynchronously call the resetZoom function.
+chart.runAsync(resetZoom, args)
+```
+
+In this case, we get a [JavaScriptProxy](/ignition/embr-core/javascript-proxy/) for the chart component and asynchronously call the resetZoom method, passing in the mode as an argument (with 'none' indicating no zoom reset).
+
+### Add Data to the Chart
+You can also add new data points to the chart after its initial creation, bypassing Perspective's property tree.
+Here's how you can add data to a Chart.js chart:
+
+```python
+# JavaScript function to add data to the chart.
+addData = '''(label, data) => { 
+    this.data.labels.push(label)
+    this.data.datasets[0].data.push(data)
+    this.update()
+}'''
+
+# Arguments to add a new data point.
+args = {
+    'label': '2024 Q1',
+    'data': 120
+}
+
+# Get the chart proxy.
+chart = self.getJavaScriptProxy('chart')
+
+# Asynchronously add the new data.
+chart.runAsync(addData, args)
+```
+
+In this case, the addData function adds a new data point to the chart's dataset, with a label of '2024 Q1' and a value of 120. 
+The update method is called to refresh the chart and display the new data.
+
+
+### Remove Data from the Chart
+Removing data from a chart can also be done via a JavaScript function.
+Here's how you can remove a specific data point by label:
+
+```python
+# JavaScript function to remove a data point.
+removeData = '''(label) => { 
+    const index = this.data.labels.indexOf(label)
+    if (index !== -1) {
+        this.data.labels.splice(index, 1)
+        this.data.datasets[0].data.splice(index, 1)
+        this.update()
+    }
+}'''
+
+# Arguments for the label to remove.
+args = {
+    'label': '2023 Q4'
+}
+
+# Get the chart proxy.
+chart = self.getJavaScriptProxy('chart')
+
+# Asynchronously remove the data.
+chart.runAsync(removeData, args)
+```
+
+This example finds the data point by its label ('2023 Q4'), removes it from the chart, and then updates the chart to reflect the change.
+
+### Update Chart Options Dynamically
+Sometimes, you may need to update the chart's configuration options dynamically, such as changing the chart's animation settings or the legend visibility. 
+Here's an example that disables the chart's animation:
+
+```python
+# JavaScript function to disable animation.
+disableAnimation = '''(animation) => { 
+    this.options.animation = animation
+    this.update()
+}'''
+
+# Arguments to disable animation.
+args = {
+    'animation': false
+}
+
+# Get the chart proxy.
+chart = self.getJavaScriptProxy('chart')
+
+# Asynchronously disable animation.
+chart.runAsync(disableAnimation, args)
+```
+
+In this case, the runAsync function sets the animation option to false, which disables chart animations, and then updates the chart to apply the new setting.
+
+### Get Chart Data
+To retrieve the current data from the chart, you can use the runAsync method to access the data object directly:
+
+```python
+# JavaScript function to get chart data.
+getData = '() => this.data'
+
+# Get the chart proxy.
+chart = self.getJavaScriptProxy('chart')
+
+# Asynchronously get the chart data.
+chart.runAsync(getData, {}, lambda data: system.perspective.print(data))
+```
+
+This example asynchronously retrieves the chart's data (such as labels and datasets) and prints it in the console via the callback function.
+This approach can be useful if you need to inspect or manipulate the data from within the Perspective session.
+
+### Toggle Chart Legend Visibility
+In many cases, you may want to toggle the visibility of the chart's legend.
+Here's an example of how to hide or show the chart's legend dynamically:
+
+```python
+# JavaScript function to toggle the legend visibility.
+toggleLegend = '''(visible) => { 
+    this.options.plugins.legend.display = visible
+    this.update()
+}'''
+
+# Arguments to hide the legend.
+args = {
+    'visible': False
+}
+
+# Get the chart proxy.
+chart = self.getJavaScriptProxy('chart')
+
+# Asynchronously toggle legend visibility.
+chart.runAsync(toggleLegend, args)
+```
+
+In this example, the toggleLegend function sets the legend.display option to false, hiding the chart’s legend. You can easily toggle this to true to make the legend visible again.

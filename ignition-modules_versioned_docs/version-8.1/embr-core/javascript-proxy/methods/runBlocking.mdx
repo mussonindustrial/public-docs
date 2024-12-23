@@ -1,0 +1,59 @@
+---
+id: JavaScriptProxy.runBlocking
+title: proxy.runBlocking
+sidebar_label: runBlocking
+---
+
+The `proxy.runBlocking` function allows you to run JavaScript code on the client side within a Perspective session. 
+ When the JavaScript function is executed, the this context inside the function will refer to the proxied property (such as a component or an object), allowing you to work with its properties or methods directly.
+
+You can also pass arguments to the JavaScript function.
+
+## Syntax
+
+```python
+proxy = component.getJavaScriptProxy([property])
+proxy.runBlocking(function, [args])
+```
+
+### Parameters
+
+<APITable>
+
+| Type | Parameter | Description |
+| --- | --- | --- |
+| _String_ | function | JavaScript function to run. Should be formatted as an arrow function. You may return a promise and resolve it later.
+| _Dictionary\<String, any>_ | args | _Optional._ Dictionary of arguments to use when calling the function. The keys of the dictionary should match the names of the arrow function arguments.
+
+</APITable>
+
+
+### Returns
+__Any__ - The return value of the JavaScript function.
+
+### Scope
+Gateway, Perspective Session
+
+## Detailed Explanation
+
+### Context
+The this context inside the JavaScript function is automatically set to the proxied property (the object or component that the JavaScriptProxy represents).
+This means you can directly access the methods or properties of the proxied object within the function, which is useful when you need to interact with the component's internal state or invoke specific actions on it.
+
+### Blocking behavior
+Unlike [runAsync], the [runBlocking] function will block the execution of the Perspective script until the provided JavaScript function has executed and returned a result. 
+This means that the Perspective runtime will wait for the JavaScript function to complete before proceeding with any subsequent code. 
+This blocking behavior is useful when the result of the JavaScript function is required to continue processing, for example, when performing synchronous calculations or interacting with data that must be processed before further actions are taken.
+
+:::warning
+Because this function blocks execution, it should be used sparingly in scenarios where you don't want to delay or lock up other processes in your Perspective session.
+:::
+
+
+## Related
+- [proxy.runAsync](./runBlocking.mdx)
+- [system.perspective.runJavaScriptAsync](/ignition/embr-periscope/scripting/perspective/system-perspective-runJavaScriptAsync)
+- [system.perspective.runJavaScriptBlocking](/ignition/embr-periscope/scripting/perspective/system-perspective-runJavaScriptBlocking)
+
+[runAsync]: ./runAsync.mdx
+[runBlocking]: ./

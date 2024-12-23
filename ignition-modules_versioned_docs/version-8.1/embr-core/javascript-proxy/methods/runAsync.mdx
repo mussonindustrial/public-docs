@@ -1,0 +1,144 @@
+---
+id: JavaScriptProxy.runAsync
+title: proxy.runAsync
+sidebar_label: runAsync
+---
+
+The `proxy.runAsync` function allows you to asynchronously run JavaScript code on the client side within a Perspective session.
+When the JavaScript function is executed, the `this` context inside the function will refer to the proxied property (such as a component or an object), allowing you to work with its properties or methods directly.
+
+You can also pass arguments to the JavaScript function and specify a callback to handle the result once the JavaScript execution is completed.
+
+:::tip
+You can also return promises from the function, allowing for asynchronous behavior without blocking the Perspective client.
+:::
+
+## Syntax
+
+```python
+proxy = component.getJavaScriptProxy([property])
+proxy.runAsync(function, [args], [callback])
+```
+
+### Parameters
+
+<APITable>
+
+| Type | Parameter | Description |
+| --- | --- | --- |
+| _String_ | function | JavaScript function to run. Should be formatted as an arrow function. You may return a promise and resolve it later.
+| _Dictionary\<String, any>_ | args | _Optional._ Dictionary of arguments to use when calling the function. The keys of the dictionary should match the names of the arrow function arguments.
+| _Function_ | callback | _Optional._ Function to run once the function has returned/resolved. Should take a single parameter containing the result of the function.
+
+</APITable>
+
+
+### Returns
+Nothing
+:::info
+The function does not return a value directly to the caller. 
+Instead, the result is passed to the provided callback function once the JavaScript code has completed execution.
+:::
+
+### Scope
+Gateway, Perspective Session
+
+## Detailed Explanation
+
+### Context
+The this context inside the JavaScript function is automatically set to the proxied property (the object or component that the JavaScriptProxy represents).
+This means you can directly access the methods or properties of the proxied object within the function, which is useful when you need to interact with the component's internal state or invoke specific actions on it.
+
+### Asynchronous Behavior
+[runAsync] is asynchronous, meaning it won't block the Perspective session or other code from executing while waiting for the JavaScript function to complete. 
+This is crucial for ensuring a responsive user interface and non-blocking execution in real-time applications.
+
+JavaScript functions executed via [runAsync] are run on the client side, so they can interact with the browser environment, handle client-specific behavior, and perform computations that don't require blocking the server-side Perspective session.
+
+### Function Structure
+The JavaScript function you provide to [runAsync] should be written in a way that either immediately returns a value or returns a `Promise` if you want to handle asynchronous operations like waiting for a timeout, making network requests, or processing data asynchronously.
+
+You may also define JavaScript functions as asynchronous using the `async` keyword. 
+If your function is asynchronous, you must either await promises within it or explicitly return them.
+
+### Use of Arguments
+When calling the JavaScript function, you can pass in a dictionary of arguments. 
+The keys in the dictionary should match the parameter names in the JavaScript function. This allows you to dynamically pass in data to the JavaScript code, enabling the function to be more flexible and reusable.
+
+
+## Examples
+
+### Without Arguments
+
+This simple example shows how to run a JavaScript function without any input arguments.
+
+```python
+# JavaScript function to run on the client. `this` refers to the chart instance.
+function = '''() => {
+    this.resetZoom()
+    return 1 + 2 + 3 + 4 + 5
+}'''
+
+# Will be called after the result of the JavaScript function is returned to the gateway.
+def callback(result):
+    system.perspective.print(result)
+
+# Get a proxy for an Embr-Charts Chart.js chart instance.
+chart = self.getJavaScriptProxy('chart')
+chart.runAsync(function, {}, callback)
+```
+
+```python title="Console"
+15
+```
+
+In this example, a proxy object is created for a [Chart.js] component's chart instance.
+The JavaScript function calls the `resetZoom` method of the chart, then calculates the sum of the numbers 1 through 5.
+The result, 15, is then passed to the callback function and printed in the client console.
+
+### With Arguments
+
+You can also pass arguments to the JavaScript function. 
+The arguments are passed in a dictionary, and the keys in the dictionary should match the function's parameter names.
+
+
+```python
+# Function with three parameters.
+function = '''(param1, param2, param3) => {
+    this.resetZoom()
+    return param1 + param2 + param3.value
+}'''
+
+def callback(result):
+    system.perspective.print(result)
+
+# The keys of the arguments dictionary are mapped to the function argument names.
+args = {
+    'param1': 10,
+    'param2': 20,
+    'param3': {
+        'value': 30
+    }
+}
+
+# Get a proxy for an Embr-Charts Chart.js chart instance.
+chart = self.getJavaScriptProxy('chart')
+chart.runAsync(function, args, callback)
+```
+
+```python title="Console"
+60
+```
+
+In this example, a proxy object is created for a [Chart.js] component's chart instance.
+The JavaScript function calls the `resetZoom` method of the chart, the JavaScript function takes three parameters and adds their values together. 
+The third argument, param3, is an object that contains the key value, which is accessed inside the function.
+
+## Related
+- [proxy.runBlocking](./runBlocking.mdx)
+- [system.perspective.runJavaScriptAsync](/ignition/embr-periscope/scripting/perspective/system-perspective-runJavaScriptAsync)
+- [system.perspective.runJavaScriptBlocking](/ignition/embr-periscope/scripting/perspective/system-perspective-runJavaScriptBlocking)
+
+[Chart.js]: /ignition/embr-charts/components/chart-js/
+[runAsync]: ./
+[runBlocking]: ./runBlocking.mdx

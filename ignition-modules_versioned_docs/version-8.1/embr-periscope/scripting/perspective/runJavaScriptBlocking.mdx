@@ -4,7 +4,6 @@ title: system.perspective.runJavaScriptBlocking
 sidebar_label: runJavaScriptBlocking
 ---
 
-## Overview
 The `system.perspective.runJavaScriptBlocking` function allows you to run JavaScript code on the client side within a Perspective session. 
 You can also pass arguments to the JavaScript function.
 
@@ -36,7 +35,7 @@ Gateway, Perspective Session
 
 ## Detailed Explanation
 
-## Blocking behavior
+### Blocking behavior
 Unlike [runJavaScriptAsync], the [runJavaScriptBlocking] function will block the execution of the Perspective script until the provided JavaScript function has executed and returned a result. 
 This means that the Perspective runtime will wait for the JavaScript function to complete before proceeding with any subsequent code. 
 This blocking behavior is useful when the result of the JavaScript function is required to continue processing, for example, when performing synchronous calculations or interacting with data that must be processed before further actions are taken.

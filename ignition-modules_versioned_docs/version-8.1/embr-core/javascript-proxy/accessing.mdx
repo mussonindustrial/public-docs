@@ -1,0 +1,49 @@
+# Create a Proxy
+
+You can create a [JavaScriptProxy] from a component's `getJavaScriptProxy` method.
+
+```python
+proxy = component.getJavaScriptProxy(property)
+```
+
+### Parameters
+
+<APITable>
+
+| Type | Parameter | Description |
+| --- | --- | --- |
+| _String_ | property | Name of the component property to proxy. Each component has its own set of proxy-able properties.
+
+</APITable>
+
+### Returns
+__JavaScriptProxy__ - A proxy for the JavaScript `property`. 
+
+
+## Examples
+
+```python
+# Zoom the chart to the specified range.
+function = '(scale, range) => this.zoomScale(scale, range)'
+
+# The keys of the arguments dictionary are mapped to the function argument names.
+args = {
+    'scale': 'x',
+    'range': {
+        'min': 0,
+        'max': 10
+    },
+}
+
+# Get a proxy for an Embr-Charts Chart.js chart instance.
+chart = self.getJavaScriptProxy('chart')
+chart.runAsync(function, args)
+```
+
+## Related
+- [proxy.runAsync](./methods/runAsync.mdx)
+- [proxy.runBlocking](./methods/runBlocking.mdx)
+- [system.perspective.runJavaScriptAsync](/ignition/embr-periscope/scripting/perspective/system-perspective-runJavaScriptAsync)
+- [system.perspective.runJavaScriptBlocking](/ignition/embr-periscope/scripting/perspective/system-perspective-runJavaScriptBlocking)
+
+[JavaScriptProxy]: ./index.mdx
