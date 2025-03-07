@@ -13,13 +13,7 @@ This component contains several improvements over the default [Flex Repeater] co
 The default [Flex Repeater] component passes parameters into its view instances on the client side.
 Therefore, in order for bindings to propagate through the component into the view, a websocket send/reply cycle is required between the Perspective client and the gateway.
 
-:::warning
-This cycle can introduce considerable delay for multiple nested embedded views.
-:::
-
-:::danger
-Clients with high latency will experience especially degraded performance.
-:::
+This cycle can introduce considerable delay for multiple nested embedded views, and clients with high latency will experience especially degraded performance.
 
 #### Server Side Parameter Binding
 Instead of passing parameters to the view instances on the client side, the [Flex Repeater +] component links its own property tree to the view instances property trees though `PropertyTreeSubscriptions`.

@@ -1,6 +1,6 @@
 # Embedded View +
 
-This component is a enhancement of the default [Embedded View] component with server-side property mapping.
+This component is an enhancement of the default [Embedded View] component with server-side property mapping.
 
 ## Enhancements
 
@@ -12,13 +12,7 @@ This component contains several improvements over the default [Embedded View] co
 The default [Embedded View] component passes parameters into its view instance on the client side.
 Therefore, in order for bindings to propagate through the component into the view, a websocket send/reply cycle is required between the Perspective client and the gateway.
 
-:::warning
-This cycle can introduce considerable delay for multiple nested embedded views.
-:::
-
-:::danger
-Clients with high latency will experience especially degraded performance.
-:::
+This cycle can introduce considerable delay for multiple nested embedded views, and clients with high latency will experience especially degraded performance.
 
 #### Server Side Parameter Binding
 Instead of passing parameters to the view instance on the client side, the [Embedded View +] component links its own property tree to the view instance property tree though `PropertyTreeSubscriptions`.
