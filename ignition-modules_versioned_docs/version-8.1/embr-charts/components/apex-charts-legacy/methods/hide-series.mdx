@@ -1,0 +1,41 @@
+---
+id: hideSeries
+title: hideSeries
+sidebar_label: hideSeries
+---
+
+Programmatically hides a chart series if it's currently visible. If the series is already hidden, calling this has no effect.
+
+See [hideSeries – ApexCharts Docs](https://apexcharts.com/docs/methods/#hideSeries) for more information.
+
+## Overview
+
+### Syntax
+
+```python
+component.hideSeries(seriesName)
+```
+
+### Parameters
+
+<APITable>
+
+    | Type | Parameter   | Description                            |
+    |------|-------------|----------------------------------------|
+    | _String_  | seriesName  | The name of the series to hide.        |
+
+</APITable>
+
+### Returns
+
+_None_
+
+## Examples
+
+### Hide Series
+
+This example hides the visibility of a series named `"SeriesA"`.
+
+```python
+self.getSibling("apexchart").hideSeries("SeriesA")
+```

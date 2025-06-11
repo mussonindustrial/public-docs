@@ -16,7 +16,7 @@ You can also return promises from the function, allowing for asynchronous behavi
 ## Syntax
 
 ```python
-proxy = component.getJavaScriptProxy([property])
+proxy = component.getJavaScriptProxy()
 proxy.runAsync(function, [args], [callback])
 ```
 
@@ -84,7 +84,7 @@ def callback(result):
     system.perspective.print(result)
 
 # Get a proxy for an Embr-Charts Chart.js chart instance.
-chart = self.getJavaScriptProxy('chart')
+chart = self.getJavaScriptProxy()
 chart.runAsync(function, {}, callback)
 ```
 
@@ -122,7 +122,7 @@ args = {
 }
 
 # Get a proxy for an Embr-Charts Chart.js chart instance.
-chart = self.getJavaScriptProxy('chart')
+chart = self.getJavaScriptProxy()
 chart.runAsync(function, args, callback)
 ```
 

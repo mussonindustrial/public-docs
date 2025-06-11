@@ -1,0 +1,42 @@
+---
+id: resetSeries
+title: resetSeries
+sidebar_label: resetSeries
+---
+
+Resets all toggled series and restores the chart to its original state. Optionally updates the series data and resets the zoom level.
+
+See [resetSeries – ApexCharts Docs](https://apexcharts.com/docs/methods/#resetSeries) for more information.
+
+## Overview
+
+### Syntax
+
+```python
+component.resetSeries([shouldUpdateChart], [shouldResetZoom])
+```
+
+### Parameters
+
+<APITable>
+
+    | Type  | Parameter          | Description                                                                 |
+    |-------|--------------------|-----------------------------------------------------------------------------|
+    | bool  | shouldUpdateChart  | Whether to restore the original series data.                                |
+    | bool  | shouldResetZoom    | Whether to reset the zoom level if the chart was zoomed.                    |
+
+</APITable>
+
+### Returns
+
+_None_
+
+## Examples
+
+### Reset Series
+
+This example resets the series and also resets the zoom level.
+
+```python
+self.getSibling("apexchart").resetSeries(True, True)
+```

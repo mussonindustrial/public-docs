@@ -4,7 +4,7 @@ title: getJavaScriptProxy
 sidebar_label: getJavaScriptProxy
 ---
 
-Returns an object that allows running client-side JavaScript against a component property.
+Returns an object that allows running client-side JavaScript against a component.
 
 See [JavaScript Proxy Objects](/ignition/embr-core/javascript-proxy/) for more information.
 
@@ -13,21 +13,15 @@ See [JavaScript Proxy Objects](/ignition/embr-core/javascript-proxy/) for more i
 ### Syntax
 
 ```python
-proxy = component.getJavaScriptProxy(property)
+proxy = component.getJavaScriptProxy()
 ```
 
 ### Parameters
 
-<APITable>
-
-| Type | Parameter | Description |
-| --- | --- | --- |
-| _String_ | property | Name of the component property to proxy. Supported properties: `chart`
-
-</APITable>
+_None_
 
 ### Returns
-__JavaScriptProxy__ - A proxy for the JavaScript `property`. 
+__JavaScriptProxy__ - A proxy for the component's JavaScript object.
 
 
 ## Examples
@@ -46,7 +40,7 @@ args = {
 }
 
 # Get a proxy for an Embr-Charts Chart.js chart instance.
-chart = self.getJavaScriptProxy('chart')
+chart = self.getJavaScriptProxy()
 
 # Asynchronously call the resetZoom function.
 chart.runAsync(resetZoom, args)
@@ -73,7 +67,7 @@ args = {
 }
 
 # Get the chart proxy.
-chart = self.getJavaScriptProxy('chart')
+chart = self.getJavaScriptProxy()
 
 # Asynchronously add the new data.
 chart.runAsync(addData, args)
@@ -104,7 +98,7 @@ args = {
 }
 
 # Get the chart proxy.
-chart = self.getJavaScriptProxy('chart')
+chart = self.getJavaScriptProxy()
 
 # Asynchronously remove the data.
 chart.runAsync(removeData, args)
@@ -129,7 +123,7 @@ args = {
 }
 
 # Get the chart proxy.
-chart = self.getJavaScriptProxy('chart')
+chart = self.getJavaScriptProxy()
 
 # Asynchronously disable animation.
 chart.runAsync(disableAnimation, args)
@@ -145,7 +139,7 @@ To retrieve the current data from the chart, you can use the runAsync method to 
 getData = '() => this.data'
 
 # Get the chart proxy.
-chart = self.getJavaScriptProxy('chart')
+chart = self.getJavaScriptProxy()
 
 # Asynchronously get the chart data.
 chart.runAsync(getData, {}, lambda data: system.perspective.print(data))
@@ -171,7 +165,7 @@ args = {
 }
 
 # Get the chart proxy.
-chart = self.getJavaScriptProxy('chart')
+chart = self.getJavaScriptProxy()
 
 # Asynchronously toggle legend visibility.
 chart.runAsync(toggleLegend, args)

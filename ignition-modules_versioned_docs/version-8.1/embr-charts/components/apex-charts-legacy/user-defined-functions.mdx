@@ -1,0 +1,18 @@
+# User Defined Functions
+
+ApexCharts allows users to define functions for various properties to offer more flexibility. For example, you can define a label formatter that uses JavaScript customize the label. The module supports user defined functions, but you must follow a specific format. For any property that allows a user defined function, simple set the property in Ignition to a string starting with:
+
+`function (`
+
+The space is important. For example, you can define a dataLabel formatter like this:
+
+```json
+{
+  "dataLabels": {
+    "enabled": true,
+    "formatter": "function (value, { seriesIndex, dataPointIndex, w }) {     return w.config.series[seriesIndex].name + \":  \" + value   }"
+  }
+}
+```
+
+Please see ApexCharts documentation for when you can use user defined functions.

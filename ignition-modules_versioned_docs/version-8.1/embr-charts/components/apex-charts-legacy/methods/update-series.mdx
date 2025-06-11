@@ -1,0 +1,61 @@
+---
+id: updateSeries
+title: updateSeries
+sidebar_label: updateSeries
+---
+
+Updates the series array, overriding the existing data. Supports options for animation, zoom maintenance, and data synchronization with the Gateway.
+
+See [updateSeries – ApexCharts Docs](https://apexcharts.com/docs/methods/#updateSeries) for more information.
+
+## Overview
+
+### Syntax
+
+```python
+component.updateSeries(
+    newSeries,
+    [animate],
+    [maintainZoom],
+    [syncProps],
+    [fetchResults]
+)
+```
+
+### Parameters
+
+<APITable>
+
+    | Type       | Parameter      | Description                                                                                                                   |
+    |------------|----------------|-------------------------------------------------------------------------------------------------------------------------------|
+    | _List[dict]_ | newSeries      | The new series array to replace the existing one.                                                                             |
+    | _Boolean_       | animate        | Optional. Whether to animate the chart on re-rendering. Default is True.                                                      |
+    | _Boolean_       | maintainZoom   | Optional. Whether to maintain zoom if the chart is already zoomed in. Default is True.                                         |
+    | _Boolean_       | syncProps      | Optional. If True, syncs the updated series with the Gateway's property model via websocket. Default is False.                 |
+    | _Boolean_       | fetchResults   | Optional. If True, sends the series data to the browser via HTTP GET instead of websocket to avoid websocket timeouts. Default is False. |
+
+</APITable>
+
+### Returns
+
+_None_
+
+## Examples
+
+### Update Series with Sync Props Enabled
+
+```python
+self.getSibling("apexchart").updateSeries(
+    newSeries=[{"data": [32, 44, 31, 41, 22]}],
+    syncProps=True
+)
+```
+
+### Update Series without Maintaining Zoom
+
+```python
+self.getSibling("apexchart").updateSeries(
+    newSeries=[{"data": [32, 44, 31, 41, 22]}],
+    maintainZoom=False
+)
+```

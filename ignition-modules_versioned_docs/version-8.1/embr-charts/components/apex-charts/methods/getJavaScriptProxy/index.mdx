@@ -1,0 +1,149 @@
+---
+id: getJavaScriptProxy
+title: getJavaScriptProxy
+sidebar_label: getJavaScriptProxy
+---
+
+Returns an object that allows running client-side JavaScript against a component.
+
+See [JavaScript Proxy Objects](/ignition/embr-core/javascript-proxy/) for more information.
+
+## Overview
+
+### Syntax
+
+```python
+proxy = component.getJavaScriptProxy()
+```
+
+### Parameters
+_None_
+
+### Returns
+__JavaScriptProxy__ - A proxy for the component's JavaScript object.
+
+
+## Examples
+
+### Toggle Series
+
+This example toggles the visibility of a series.
+
+```python
+# JavaScript function to run on the client. `this` refers to the chart instance.
+toggleSeries  = '(seriesName) => this.toggleSeries(seriesName)'
+
+args = {
+    'seriesName': 'Series-1'
+}
+
+
+# Get a proxy for an Embr-Charts ApexCharts chart instance.
+chart = self.getJavaScriptProxy()
+
+# Asynchronously call the toggleSeries function.
+chart.runAsync(toggleSeries, args)
+```
+
+In this case, we get a [JavaScriptProxy](/ignition/embr-core/javascript-proxy/) for the chart component and asynchronously call the resetSeries method.
+
+### Reset Series
+
+This example resets all toggled series and restores the chart to its original state.
+
+```python
+resetSeries = '() => this.resetSeries()'
+
+chart = self.getJavaScriptProxy()
+chart.runAsync(resetSeries)
+```
+
+### Update Options
+
+This example updates chart options dynamically.
+
+```python
+updateOptions = '(options, redraw, animate) => this.updateOptions(options, redraw, animate)'
+
+args = {
+    'options': {
+        'chart': { 'background': '#f4f4f4' },
+        'title': { 'text': 'Updated Title' }
+    },
+    'redraw': True,
+    'animate': True
+}
+
+chart = self.getJavaScriptProxy()
+chart.runAsync(updateOptions, args)
+```
+
+### Update Series
+
+This example updates the chart’s entire series dataset.
+
+```python
+updateSeries = '(series, animate) => this.updateSeries(series, animate)'
+
+args = {
+    'series': [
+        { 'name': 'Series-1', 'data': [10, 20, 30, 40] },
+        { 'name': 'Series-2', 'data': [15, 25, 35, 45] }
+    ],
+    'animate': True
+}
+
+chart = self.getJavaScriptProxy()
+chart.runAsync(updateSeries, args)
+```
+
+### Append Data
+
+This example appends a data point to an existing series.
+
+```python
+appendData = '(data, seriesIndex) => this.appendData(data, seriesIndex)'
+
+args = {
+    'data': { 'data': [50] },
+    'seriesIndex': 0
+}
+
+chart = self.getJavaScriptProxy()
+chart.runAsync(appendData, args)
+```
+
+### Add Point Annotation
+
+This example adds a point annotation to the chart.
+
+```python
+addAnnotation = '(annotation) => this.addPointAnnotation(annotation)'
+
+args = {
+    'annotation': {
+        'x': 2,
+        'y': 30,
+        'seriesIndex': 0,
+        'label': {
+            'text': 'Threshold'
+        }
+    }
+}
+
+chart = self.getJavaScriptProxy()
+chart.runAsync(addAnnotation, args)
+```
+
+### Remove Annotation
+
+This example removes a previously added annotation.
+
+```python
+removeAnnotation = '(id) => this.removeAnnotation(id)'
+
+args = { 'id': 'annotation-id' }
+
+chart = self.getJavaScriptProxy()
+chart.runAsync(removeAnnotation, args)
+```

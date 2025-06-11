@@ -1,0 +1,48 @@
+---
+id: addPointAnnotation
+title: addPointAnnotation
+sidebar_label: addPointAnnotation
+---
+
+Draws a point annotation on the chart after it has been rendered. Can be used to highlight specific data points. You can choose whether the annotation should persist through future chart updates.
+
+See [addPointAnnotation – ApexCharts Docs](https://apexcharts.com/docs/methods/#addpointannotation) for more information.
+
+## Overview
+
+### Syntax
+
+```python
+component.addPointAnnotation(options, pushToMemory)
+```
+
+### Parameters
+
+<APITable>
+
+    | Type   | Parameter       | Description                                                                                              |
+    |--------|------------------|----------------------------------------------------------------------------------------------------------|
+    | _Dictionary_   | options          | Annotation config object. Same structure as defined in point annotations configuration.                 |
+    | _Boolean_   | pushToMemory     | If True, the annotation is preserved on subsequent chart updates. Set to False to make it temporary.    |
+
+</APITable>
+
+### Returns
+
+_None_
+
+## Examples
+
+### Add Point Annotation
+
+This example draws a labeled annotation at a specific X/Y coordinate.
+
+```python
+self.getSibling("apexchart").addPointAnnotation({
+    "x": 1698098270040,
+    "y": 40,
+    "label": {
+        "text": "Lorem Ipsum"
+    }
+}, True)
+```

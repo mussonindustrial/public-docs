@@ -1,0 +1,41 @@
+---
+id: toggleSeries
+title: toggleSeries
+sidebar_label: toggleSeries
+---
+
+Programmatically toggles the visibility of a chart series. This is especially useful when implementing a custom legend.
+
+See [toggleSeries – ApexCharts Docs](https://apexcharts.com/docs/methods/#toggleSeries) for more information.
+
+## Overview
+
+### Syntax
+
+```python
+component.toggleSeries(seriesName)
+```
+
+### Parameters
+
+<APITable>
+
+    | Type | Parameter   | Description                                      |
+    |------|-------------|--------------------------------------------------|
+    | str  | seriesName  | The name of the series to toggle visibility for. |
+
+</APITable>
+
+### Returns
+
+_None_
+
+## Examples
+
+### Toggle Series
+
+This example toggles the visibility of a series named `"SeriesA"`.
+
+```python
+self.getSibling("apexchart").toggleSeries("SeriesA")
+```

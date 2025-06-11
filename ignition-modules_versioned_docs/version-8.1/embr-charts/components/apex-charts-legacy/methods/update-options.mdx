@@ -1,0 +1,152 @@
+---
+id: updateOptions
+title: updateOptions
+sidebar_label: updateOptions
+---
+
+Updates the chart options by merging the new configuration with the existing one.
+
+See [updateOptions – ApexCharts Docs](https://apexcharts.com/docs/methods/#updateOptions) for more information.
+
+## Overview
+
+### Syntax
+
+```python
+component.updateOptions(
+    newOptions,
+    [redrawPaths],
+    [animate],
+    [updateSyncedCharts],
+    [maintainZoom],
+    [syncProps]
+)
+```
+
+### Parameters
+
+<APITable>
+
+| Type   | Parameter          | Description                                                                                                      |
+|--------|--------------------|------------------------------------------------------------------------------------------------------------------|
+| _Dictionary_   | newOptions         | The configuration object to merge with the existing options.                                                    |
+| _Boolean_   | redrawPaths        | Optional. Whether to redraw chart paths from the beginning or reuse existing paths on re-rendering. Default: False. |
+| _Boolean_   | animate            | Optional. Whether to animate the chart on re-rendering. Default: True.                                          |
+| _Boolean_   | updateSyncedCharts | Optional. Whether all charts in a group should update when one chart updates. Default: True.                     |
+| _Boolean_   | maintainZoom       | Optional. Whether to maintain zoom if the chart is zoomed in. Default: True.                                    |
+| _Boolean_   | syncProps          | Optional. Whether to sync options with the Gateway's property model via websocket. Default: False.               |
+
+</APITable>
+
+### Returns
+_None_
+
+## Examples
+
+### Update Chart Options with Path Redraw Enabled
+```python
+self.getSibling("apexchart").updateOptions({
+  "chart": {
+    "stacked": False,
+    "toolbar": {
+      "show": True
+    },
+    "type": "line",
+    "events": {
+      "animationEnd": False,
+      "beforeMount": False,
+      "mounted": False,
+      "updated": False,
+      "mouseMove": False,
+      "mouseLeave": False,
+      "click": False,
+      "legendClick": False,
+      "markerClick": False,
+      "xAxisLabelClick": False,
+      "selection": False,
+      "dataPointSelection": False,
+      "dataPointMouseEnter": False,
+      "dataPointMouseLeave": False,
+      "beforeZoom": False,
+      "beforeResetZoom": False,
+      "zoomed": False,
+      "scrolled": False,
+      "brushScrolled": False
+    }
+  },
+  "dataLabels": {
+    "enabled": False
+  },
+  "fill": {
+    "opacity": 1
+  },
+  "markers": {
+    "size": 0
+  },
+  "stroke": {
+    "width": 3
+  },
+  "xaxis": {
+    "type": "datetime"
+  },
+  "yaxis": {
+    "labels": {
+      "formatter": "function (val) { return val.toFixed(2); }"
+    }
+  }
+}, redrawPaths=True)
+```
+
+### Update Chart Options Maintaining Zoom
+```python
+self.getSibling("apexchart").updateOptions(newOptions={
+  "chart": {
+    "stacked": False,
+    "toolbar": {
+      "show": True
+    },
+    "type": "line",
+    "events": {
+      "animationEnd": False,
+      "beforeMount": False,
+      "mounted": False,
+      "updated": False,
+      "mouseMove": False,
+      "mouseLeave": False,
+      "click": False,
+      "legendClick": False,
+      "markerClick": False,
+      "xAxisLabelClick": False,
+      "selection": False,
+      "dataPointSelection": False,
+      "dataPointMouseEnter": False,
+      "dataPointMouseLeave": False,
+      "beforeZoom": False,
+      "beforeResetZoom": False,
+      "zoomed": False,
+      "scrolled": False,
+      "brushScrolled": False
+    }
+  },
+  "dataLabels": {
+    "enabled": False
+  },
+  "fill": {
+    "opacity": 1
+  },
+  "markers": {
+    "size": 0
+  },
+  "stroke": {
+    "width": 3
+  },
+  "xaxis": {
+    "type": "datetime"
+  },
+  "yaxis": {
+    "labels": {
+      "formatter": "function (val) { return val.toFixed(2); }"
+    }
+  }
+}, maintainZoom=True)
+```

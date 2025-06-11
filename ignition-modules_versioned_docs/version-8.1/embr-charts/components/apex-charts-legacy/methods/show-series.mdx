@@ -1,0 +1,41 @@
+---
+id: showSeries
+title: showSeries
+sidebar_label: showSeries
+---
+
+Programmatically shows a chart series if it's hidden. If the series is already visible, calling this has no effect.
+
+See [showSeries – ApexCharts Docs](https://apexcharts.com/docs/methods/#showSeries) for more information.
+
+## Overview
+
+### Syntax
+
+```python
+component.showSeries(seriesName)
+```
+
+### Parameters
+
+<APITable>
+
+    | Type | Parameter   | Description                               |
+    |------|-------------|-------------------------------------------|
+    | str  | seriesName  | The name of the series to show.           |
+
+</APITable>
+
+### Returns
+
+_None_
+
+## Examples
+
+### Show Series
+
+This example shows the visibility of a series named `"SeriesA"`.
+
+```python
+self.getSibling("apexchart").showSeries("SeriesA")
+```

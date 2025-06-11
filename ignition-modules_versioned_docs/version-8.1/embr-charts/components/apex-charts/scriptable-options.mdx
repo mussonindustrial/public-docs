@@ -1,0 +1,20 @@
+# Scriptable Options
+ApexCharts scriptable options are supported.
+
+Any component property value containing an arrow function `() =>` statement will be converted into a JavaScript function.
+
+The function will have access to all parameters listed in the [ApexCharts documentation].
+
+## Scriptable Option Example
+```js
+// Apply a data-label formatter
+{
+  "dataLabels": {
+    "enabled": true,
+    "formatter": "(value, opts) => { return w.config.series[opts.seriesIndex].name + \":  \" + value   }"
+  }
+}
+```
+
+[ApexCharts]: https://apexcharts.com/
+[ApexCharts documentation]: https://apexcharts.com/docs/

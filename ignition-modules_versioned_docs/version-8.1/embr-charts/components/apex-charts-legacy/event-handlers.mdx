@@ -1,0 +1,36 @@
+# Event Handlers
+
+ApexCharts provides a range of [event handlers](https://apexcharts.com/docs/options/chart/events/) for their charts. The events allow you to respond to various events, such as mouse click, zoom, selection, etc.
+
+All the events are turned off by default on the component. You can turn them on by setting the event property to true, located in `options.chart.events`.
+The following example enables the click event:
+
+```json
+{
+  "chart": {
+    "events": {
+      "animationEnd": false,
+      "beforeMount": false,
+      "mounted": false,
+      "updated": false,
+      "mouseMove": false,
+      "mouseLeave": false,
+      "click": true,
+      "legendClick": false,
+      "markerClick": false,
+      "selection": false,
+      "dataPointSelection": false,
+      "dataPointMouseEnter": false,
+      "dataPointMouseLeave": false,
+      "beforeZoom": false,
+      "beforeResetZoom": false,
+      "zoomed": false,
+      "scrolled": false,
+      "brushScrolled": false
+    }
+  }
+}
+```
+
+Once the event is enabled, you can write a corresponding script handler in the components (right-click and select configure events).
+All the event handlers have an event object containing details on the event. See the documentation for each event handler for more details.

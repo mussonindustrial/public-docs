@@ -1,0 +1,42 @@
+---
+id: zoomX
+title: zoomX
+sidebar_label: zoomX
+---
+
+Manually zooms into the chart using the provided X-axis start and end values. Useful for programmatically focusing on a specific time range or section of the chart.
+
+See [zoomX – ApexCharts Docs](https://apexcharts.com/docs/methods/#zoomX) for more information.
+
+## Overview
+
+### Syntax
+
+```python
+component.zoomX(start, end)
+```
+
+### Parameters
+
+<APITable>
+
+    | Type     | Parameter | Description                                               |
+    |----------|-----------|-----------------------------------------------------------|
+    | _Number_ | start     | The starting x-axis value. Accepts timestamp or number.   |
+    | _Number_ | end       | The ending x-axis value. Accepts timestamp or number.     |
+
+</APITable>
+
+### Returns
+
+_None_
+
+## Examples
+
+### Zoom X-Axis
+
+This example zooms into a specific range on the X-axis.
+
+```python
+self.getSibling("apexchart").zoomX(1698098360040, 1698098480040)
+```

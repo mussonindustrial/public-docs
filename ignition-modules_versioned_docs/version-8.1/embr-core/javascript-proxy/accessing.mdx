@@ -1,20 +1,14 @@
-# Create a Proxy
+# Get a JavaScriptProxy
 
-You can create a [JavaScriptProxy] from a component's `getJavaScriptProxy` method.
+You can access a [JavaScriptProxy] from a component's `getJavaScriptProxy` method.
 
 ```python
-proxy = component.getJavaScriptProxy(property)
+proxy = component.getJavaScriptProxy()
 ```
 
 ### Parameters
 
-<APITable>
-
-| Type | Parameter | Description |
-| --- | --- | --- |
-| _String_ | property | Name of the component property to proxy. Each component has its own set of proxy-able properties.
-
-</APITable>
+_None_
 
 ### Returns
 __JavaScriptProxy__ - A proxy for the JavaScript `property`. 
@@ -36,7 +30,7 @@ args = {
 }
 
 # Get a proxy for an Embr-Charts Chart.js chart instance.
-chart = self.getJavaScriptProxy('chart')
+chart = self.getJavaScriptProxy()
 chart.runAsync(function, args)
 ```
 
